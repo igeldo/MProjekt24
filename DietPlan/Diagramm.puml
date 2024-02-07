@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Person {
+str Name
+date DateOfBirth
+float Weight
+float Height
+str Gender
+float Supply
+float Activity
+str getName()
+str getDateOfBirth()
+int calcAge(DateOfBirth)
+str getWeight()
+str getHeight()
+str getGender()
+int calcBasalMetabolismHB(Age, Weight, Height, Gender)
+int calcBasalMetabolismMSJ(Age, Weight, Height, Gender)
+int calcBasalMetabolismS(Age, Weight, Gender)
+}
+
+class Supply {
+str getFood()
+float calcCalories()
+str showInfo()
+int calcTotalCalories()
+}
+
+class Activity {
+int getActivity()
+float calcActivity(activityDays)
+float getSport()
+}
+
+Person "*"-*"1" Supply
+Person "*"-*"1" Activity
+
+@enduml
