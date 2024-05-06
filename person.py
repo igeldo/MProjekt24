@@ -6,14 +6,14 @@ class Person:
     def __init__(self, a, b, c, d):
         self._name = a
         self._surname = b
-        self._birthdate = c
+        self._birthdate = datetime.date(2018, 5, 12)
         self._abbreviation = d
 
     def show_attributes(self):
         print('Vorname: ' + self._name)
         print('Nachname: ' + self._surname)
-        print('Geburtsdatum: ' +self._birthdate)
-        print('Kürzel: ' +self._abbreviation)
+        print('Geburtsdatum: ' + )
+        print('Kürzel: ' + self._abbreviation)
 
 
     def neu_anlegen(self):
