@@ -11,12 +11,6 @@ class Person:
         self._birthdate = birthdate
         self._abbreviation = abbreviation
 
-    def show_attributes(self):
-        print('Vorname:', self._name)
-        print('Nachname:', self._surname)
-        print('Geburtsdatum:', self._birthdate)
-        print('Kürzel:', self._abbreviation)
-
     def calculate_age(self):
         today = date.today()
         birthdate = date.fromisoformat(self._birthdate)
@@ -28,6 +22,12 @@ class Person:
 
         return age
 
+    def show_attributes(self):
+        print('Vorname:', self._name)
+        print('Nachname:', self._surname)
+        print('Geburtsdatum:', self._birthdate)
+        print('Kürzel:', self._abbreviation)
+        print('Alter:', self.calculate_age())
 
     def neu_anlegen(self):
         # Hier können Sie den Code einfügen, um eine neue Person anzulegen

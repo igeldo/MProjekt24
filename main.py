@@ -5,13 +5,13 @@ class Main:
     def run(self):
         person1 = Person('Harald', 'Mueller', '1980-05-25', 'HM')
         person1.show_attributes()
-        print('Alter:', person1.calculate_age())
+
 
         print('\n')
 
         person2 = Person('Steffanie', 'Vogel', '1995-11-12', 'SV')
         person2.show_attributes()
-        print('Alter:', person2.calculate_age())
+
 
 
 if __name__ == '__main__':
