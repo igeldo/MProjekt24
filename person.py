@@ -1,3 +1,4 @@
+import datetime
 from abc import abstractmethod, ABC
 
 
@@ -13,6 +14,7 @@ class Person:
         print('Nachname: ' + self._surname)
         print('Geburtsdatum: ' +self._birthdate)
         print('Kürzel: ' +self._abbreviation)
+
 
     def neu_anlegen(self):
         # Hier können Sie den Code einfügen, um eine neue Person anzulegen
