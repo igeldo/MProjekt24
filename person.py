@@ -9,10 +9,10 @@ class Person:
         self._abbreviation = d
 
     def show_attributes(self):
-        print(self._name)
-        print(self._surname)
-        print(self._birthdate)
-        print(self._abbreviation)
+        print('Vorname: ' + self._name)
+        print('Nachname: ' + self._surname)
+        print('Geburtsdatum: ' +self._birthdate)
+        print('Kürzel: ' +self._abbreviation)
 
     def neu_anlegen(self):
         # Hier können Sie den Code einfügen, um eine neue Person anzulegen

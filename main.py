@@ -3,8 +3,10 @@ from person import Person
 
 class Main:
     def run(self):
-        Person1 = Person(Harald, Mueller, xxx, HM)
-        Person1.show_attributes()
+        person1 = Person('Harald', 'Mueller', 'xxx', 'HM')
+        person1.show_attributes()
+        person2 = Person('Steffanie', 'Vogel', 'xxx', 'SV')
+        person2.show_attributes()
 
 
 if __name__ == '__main__':
