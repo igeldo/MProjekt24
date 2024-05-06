@@ -1,3 +1,4 @@
+import datetime
 from abc import abstractmethod, ABC
 
 from datetime import date
@@ -26,6 +27,7 @@ class Person:
             age -= 1
 
         return age
+
 
     def neu_anlegen(self):
         # Hier können Sie den Code einfügen, um eine neue Person anzulegen
