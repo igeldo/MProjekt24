@@ -3,15 +3,12 @@ from abc import abstractmethod, ABC
 
 
 class Person:
-    def __init__(self, a, b, geburtsdatum, alter, kuerzel):
+    def __init__(self, a, b, c, d, e):
         self._name = a
         self._surname = b
-        self.birthdate = geburtsdatum
-        self.age = alter
-        self.abbreviation = kuerzel
-
-        self._width = a
-        self._length = b
+        self._birthdate = c
+        self._age = d
+        self._abbreviation = e
 
     def neu_anlegen(self):
         # Hier können Sie den Code einfügen, um eine neue Person anzulegen
