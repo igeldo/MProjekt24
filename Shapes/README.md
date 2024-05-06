@@ -1,4 +1,4 @@
-# HelloPython
+# Shapes
 
 Example for
 - classes in Python
@@ -20,14 +20,14 @@ in einer Git Bash unter Windows.
 ### Clonen des Repositories
 
 ```shell
-git clone git@github.com:gpietrek/HelloPython.git
+git clone git@github.com:igeldo/MProjekt24.git
 ```
 
-Es ist ein neues Verzeichnis mit dem Namen `HelloPython` entstanden.
+Es ist ein neues Verzeichnis mit dem Namen `MProjekt24` entstanden.
 
 Wechsel in das Verzeichnis und Abfrage des Status mit
 ```shell
-cd HelloPython
+cd MProjekt24/Shapes
 git status
 ```
 sollte ungefähr folgende Ausgabe ergeben:
@@ -53,7 +53,7 @@ python -m pip install -r requirements.txt
 
 Für jede neu geöffnete Shell muss einmalig in die virtuelle Umgebung gewechselt werden:
 ```shell
-cd <pfad_zu_src>/HelloPython
+cd <pfad_zu_src>/MProjekt24/Shapes
 source venv/bin/activate
 ```
 
