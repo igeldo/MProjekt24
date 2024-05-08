@@ -6,7 +6,7 @@ from graphics.shape.shape import Shape
 
 class Triangle(Shape):
 
-    def __init__(self, *, p1: Point, p2: Point, p3: Point, **kwargs) -> None:
+    def __init__(self, p1: Point, p2: Point, p3: Point, **kwargs) -> None:
         self._p1 = check_type(p1, Point, 'p1')
         self._p2 = check_type(p2, Point, 'p2')
         self._p3 = check_type(p3, Point, 'p3')

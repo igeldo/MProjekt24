@@ -6,7 +6,7 @@ from graphics.plot.plot import Plot
 
 
 class Shape(ABC):
-    def __init__(self, *, center: Point) -> None:
+    def __init__(self, center: Point) -> None:
         self._center = check_type(center, Point, 'center')
 
     def get_center(self) -> Point:

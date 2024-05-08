@@ -7,7 +7,7 @@ from graphics.shape.shape import Shape
 
 class Circle(Shape):
 
-    def __init__(self, *, radius: float, **kwargs) -> None:
+    def __init__(self, radius: float, **kwargs) -> None:
         super().__init__(**kwargs)
         self._radius = check_float_positive(radius, 'radius')
 

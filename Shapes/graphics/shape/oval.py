@@ -6,7 +6,7 @@ from graphics.shape.rectangle import Rectangle
 
 class Oval(Rectangle, Circle):
 
-    def __init__(self, *, width: float, height: float, **kwargs) -> None:
+    def __init__(self, width: float, height: float, **kwargs) -> None:
         super().__init__(width=width, height=height, radius=height / 2, **kwargs)
 
     def calculate_area(self) -> float:
