@@ -7,6 +7,8 @@ from graphics.shape.shape import Shape
 class Rectangle(Shape):
 
     def __init__(self, width: float, height: float, **kwargs) -> None:
+        print(f"Rectangle, width: {width}, height: {height}")
+        print(f"   kwargs: {kwargs}")
         super().__init__(**kwargs)
         self._width = check_float_positive(width, 'width')
         self._height = check_float_positive(height, 'height')
