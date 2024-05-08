@@ -1,8 +1,9 @@
 """Importieren der Bibliotheken"""
 import os
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from datetime import datetime, time, date
 
 
 class Person:
@@ -18,9 +19,8 @@ class Person:
         data_list = df.to_dict(orient='records')
         return data_list
 
-    def Ruheherzfrequenz(self):
-# Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
-pass
+    def Ruheherzfrequenz(self): # Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
+        pass
 
     def Maximalherfrequenz(self):  # Definition der maximalen HF nach Standadformel 220-Alter
         pass
@@ -32,8 +32,7 @@ pass
         combine_datetime = datetime.combine(date, time)
 
     def Analyse_Herzfrequenz(self):
-        plt.plot(combine_datetime,
-                 hear_rate_data)  # Soll die Datum & Uhrzeit auf x-Achse plotten und die HF auf y Achse
+        plt.plot(combine_datetime, heart_rates)  # Soll die Datum & Uhrzeit auf x-Achse plotten und die HF auf y Achse
         plt.xlabel('Datum/Uhrzeit')
         plt.ylabel('Herzfrequenz')
         plt.title('Herzfrequenzdaten')
