@@ -1,11 +1,8 @@
 """Importieren der Bibliotheken"""
-
-
-
-import numpy as np
-import matplotlib.pyplot as plt
+import os
 import pandas as pd
-from datetime import datetime, time, date
+import matplotlib.pyplot as plt
+
 
 
 
@@ -17,11 +14,13 @@ class Person:
         self.fitness_level = fitness_level
         self.herz_rate_data = () #HF muss definiert werden um es zu improtieren zu können
 
-    def Daten_Importieren:
+    def Daten_Importieren (cls, excel_datei):
         df = pd.read_excel(excel_datei)
         data_list = df.to_dict(orient='records')
+        return data_list
 
-    def Ruheherzfrequenz: # Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
+    def Ruheherzfrequenz:
+# Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
 
 
     def Maximalherfrequenz: #Definition der maximalen HF nach Standadformel 220-Alter
