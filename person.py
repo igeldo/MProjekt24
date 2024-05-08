@@ -28,15 +28,3 @@ class Person:
         print('Geburtsdatum:', self._birthdate)
         print('Kürzel:', self._abbreviation)
         print('Alter:', self.calculate_age())
-
-    def create_Person(self):
-        # Hier können Sie den Code einfügen, um eine neue Person anzulegen
-        pass
-
-    def delete_Person(self):
-        # Hier können Sie den Code einfügen, um eine Person zu löschen
-        pass
-
-    def change_PersonDetails(self):
-        # Hier können Sie den Code einfügen, um eine Person zu bearbeiten
-        pass
