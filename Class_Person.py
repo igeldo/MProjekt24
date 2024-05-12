@@ -101,7 +101,7 @@ class Person:
         self.time = time
         combine_datetime = datetime.combine(date, time)
 
-    def analyze_heart_rate(self, combine_datetime, heart_rates):
+    def analyze_heart_rate(rates, combine_datetime=None, heart_rates=None):
         plt.plot(combine_datetime, heart_rates)  # Soll die Datum & Uhrzeit auf x-Achse plotten und die HF auf y Achse
         plt.xlabel('Date/Time')
         plt.ylabel('Heartrate')

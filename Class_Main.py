@@ -1,14 +1,13 @@
 from Class_Person import Person
-import pip as pip
-from pip import openpyxl
-pip install openpyx
+import openpyxl
 
 class Main:
-    def run(self):
+    def run(self, combine_datetime,heart_rates):
         person1 = Person('Corinne', 28, 'female', 'good')
         person1.import_data('V0.1_HFdaten.xlsx') #Import von Exceldatei funktioniert noch nicht --> Frage!
-        person1.analyze_heart_rate()
+        person1.analyze_heart_rate(combine_datetime, heart_rates)
+
 
 if __name__ == '__main__':
     main = Main()
-    main.run()
+    main.run("2022-12-27 08:26:49.219717", 60)
