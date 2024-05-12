@@ -19,7 +19,9 @@ class Person:
         data_list = df.to_dict(orient='records')
         return data_list
 
-    def Ruheherzfrequenz(self): # Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
+    def Ruheherzfrequenz(self):
+        # Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
+
         pass
 
     def Maximalherfrequenz(self):  # Definition der maximalen HF nach Standadformel 220-Alter
