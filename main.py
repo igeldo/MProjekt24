@@ -1,5 +1,6 @@
 from person import Person
 from doctor import Doctor
+from patient import Patient
 
 class Main:
     def run(self):
@@ -15,6 +16,16 @@ class Main:
 
         doctor1 = Doctor('Maral', 'Safadi', '1970-09-06', 'MS', 'Internistin')
         doctor1.show_attributes()
+
+        print('\n')
+
+        patient1 = Patient('John', 'Doe', '1990-07-15', 'JD', 'None', 'Fever', 'Male')
+        patient1.show_attributes()
+
+        print('\n')
+
+        patient2 = Patient('Jane', 'Smith', '1985-03-20', 'JS', 'Asthma', 'Cough', 'Female')
+        patient2.show_attributes()
 
 if __name__ == '__main__':
     main = Main()
