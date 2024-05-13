@@ -4,7 +4,7 @@ from patient import Patient
 
 class Main:
     def run(self):
-        doctor1 = Doctor('Prof. Dr.','Maral', 'Safadi', '1970-09-06', '+4917765432109', 'MS', 'Internistin')
+        doctor1 = Doctor('Prof. Dr.', 'Maral', 'Safadi', '1970-09-06', '+4917765432109', 'MS', 'Internistin')
         doctor1.show_attributes()
 
         print('\n')

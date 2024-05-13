@@ -24,6 +24,6 @@ class Person:
         print('Vorname:', self._name)
         print('Nachname:', self._surname)
         print('Geburtsdatum:', self._birthdate)
-        print('Telefon:', self._phoneNumber)
+        print('Telefon: ', self._phoneNumber)
         print('Kürzel:', self._abbreviation)
         print('Alter:', self.calculate_age())

@@ -22,4 +22,4 @@ class Patient(Person):
         print('Vorerkrankung:', self._preillness)
         print('Symptome:', self._symptoms)
         print('Geschlecht:', self._sex)
-        print('Telefon:', self._phoneNumber)
+        print('Telefon: ', self._phoneNumber)
