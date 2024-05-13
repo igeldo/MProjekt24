@@ -12,4 +12,4 @@ class Doctor(Person):
         print('Titel: ', self._title)
         super().show_attributes()
         print('Fachrichtung:', self._profession)
-        print('Telefon: ', self.phoneNumber)
+        print('Telefon: ', self._phoneNumber)
