@@ -2,10 +2,11 @@ from datetime import date
 
 
 class Person:
-    def __init__(self, name: str, surname: str, birthdate, abbreviation: str):
+    def __init__(self, name: str, surname: str, birthdate, phoneNumber: int, abbreviation: str):
         self._name = name
         self._surname = surname
         self._birthdate = birthdate
+        self._phoneNumber = phoneNumber
         self._abbreviation = abbreviation
 
     def calculate_age(self):
@@ -23,5 +24,6 @@ class Person:
         print('Vorname:', self._name)
         print('Nachname:', self._surname)
         print('Geburtsdatum:', self._birthdate)
+        print('Telefon:', self._phoneNumber)
         print('Kürzel:', self._abbreviation)
         print('Alter:', self.calculate_age())
