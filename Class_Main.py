@@ -10,4 +10,4 @@ class Main:
 
 if __name__ == '__main__':
     main = Main()
-    main.run("2022-12-27 08:26:49.219717", 60) #beispiel für datetime
+    main.run("22.08.2023", 117) #beispiel für datetime
