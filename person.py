@@ -2,7 +2,7 @@ from datetime import date
 
 
 class Person:
-    def __init__(self, name, surname, birthdate, abbreviation):
+    def __init__(self, name: str, surname: str, birthdate, abbreviation: str):
         self._name = name
         self._surname = surname
         self._birthdate = birthdate

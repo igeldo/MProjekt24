@@ -1,9 +1,6 @@
-class Main:
-    def run(self):
+from person import Person
 
-
-
-
-if __name__ == '__main__':
-    main = Main()
-    main.run()
+class Doctor(Person):
+    def __init__(self, profession: str):
+       # super().__init__( name, surname, birthdate, abbreviation, age)
+        self._profession = profession
