@@ -4,7 +4,7 @@ from person import Person
 class Main:
     def run(self, combine_datetime,heart_rates):
         person1 = Person('Corinne', 28, 'female', 'good')
-        person1.import_data('V0.1_HFdaten.xlsx') #Import von Exceldatei funktioniert noch nicht --> Frage!
+        person1.import_data('V0.1_HFdaten.xlsx')
         person1.analyze_heart_rate(combine_datetime, heart_rates)
 
 
