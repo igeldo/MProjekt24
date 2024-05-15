@@ -1,4 +1,4 @@
-from Class_Person import Person
+from person import Person
 import openpyxl
 
 class Main:
