@@ -1,6 +1,7 @@
 from model import Person
 from view import HeartRateView
 
+
 class PersonController:
     def __init__(self, name, age, sex, fitness_level):
         self.person = Person(name, age, sex, fitness_level)
@@ -11,3 +12,6 @@ class PersonController:
 
     def analyze_heart_rate(self):
         self.view.plot_heart_rate(self.person.heart_rate_data)
+
+    def analyze_correlation(self):
+        self.view.plot_correlation(self.person.heart_rate_data)

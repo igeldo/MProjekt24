@@ -97,3 +97,10 @@ class Person:
             'Date': combine_datetime,
             'HeartRate': heart_rate_data
         }, ignore_index=True)
+
+    def calculate_correlation(self):
+        if 'HeartRate' in self.heart_rate_data.columns and 'fitness_level' in self.heart_rate_data.columns:
+            correlation = self.heart_rate_data[['HeartRate', 'fitness_level']].corr().iloc[0, 1]
+            return correlation
+        else:
+            raise ValueError("HeartRate or fitness_level data is not available")

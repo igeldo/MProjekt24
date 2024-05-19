@@ -11,6 +11,9 @@ def main():
     # Herzfrequenzdaten analysieren und anzeigen
     controller.analyze_heart_rate()
 
+    # Korrelation analysieren und anzeigen
+    controller.analyze_correlation()
+
 
 if __name__ == '__main__':
     main()
