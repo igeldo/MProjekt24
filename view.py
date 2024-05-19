@@ -11,7 +11,7 @@ class HeartRateView:
         plt.title('Heart Frequency')
         plt.show()
 
-    def plot_correlation(data):
+    def plot_correlation(self, data):
         sns.scatterplot(data=data, x='HeartRate', y='fitness_level')
         plt.title('Korrelation zwischen Herzfrequenz und Fitnesslevel')
         plt.xlabel('Herzfrequenz')
