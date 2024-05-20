@@ -1,6 +1,5 @@
 from controller import PersonController
 
-
 def main():
     # Erstellen eines Controllers
     controller = PersonController('Corinne', 28, 'female', 'good')
@@ -13,7 +12,6 @@ def main():
 
     # Korrelation analysieren und anzeigen
     controller.analyze_correlation()
-
 
 if __name__ == '__main__':
     main()

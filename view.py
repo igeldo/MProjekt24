@@ -1,19 +1,19 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
 class HeartRateView:
     @staticmethod
     def plot_heart_rate(data):
         plt.plot(data['Date'], data['HeartRate'])
         plt.xlabel('Date/Time')
-        plt.ylabel('Heartrate')
-        plt.title('Heart Frequency')
+        plt.ylabel('Heart Rate')
+        plt.title('Heart Rate over Time')
         plt.show()
 
-    def plot_correlation(self, data):
-        sns.scatterplot(data=data, x='HeartRate', y='fitness_level')
-        plt.title('Korrelation zwischen Herzfrequenz und Fitnesslevel')
-        plt.xlabel('Herzfrequenz')
-        plt.ylabel('Fitnesslevel')
+    @staticmethod
+    def plot_correlation(data):
+        sns.scatterplot(data=data, x='HeartRate', y='Activity')
+        plt.title('Correlation between Heart Rate and Activity')
+        plt.xlabel('Heart Rate')
+        plt.ylabel('Activity')
         plt.show()

@@ -14,7 +14,7 @@ class Person:
         self.heart_rate_data = df
         return self.heart_rate_data
 
-    def resting_heart_rate(self):  # Definition der RuheHF für Geschlecht nach Alter und Fitnesslevel
+    def resting_heart_rate(self):
         if self.sex == 'male':
             if self.age <= 25:
                 if self.fitness_level == 'excellent':
@@ -91,16 +91,17 @@ class Person:
     def maximum_heart_rate(self):
         return 220 - self.age
 
-    def add_heart_rate_data(self, date, time, heart_rate_data):
+    def add_heart_rate_data(self, date, time, heart_rate_data, activity):
         combine_datetime = datetime.combine(date, time)
         self.heart_rate_data = self.heart_rate_data.append({
             'Date': combine_datetime,
-            'HeartRate': heart_rate_data
+            'HeartRate': heart_rate_data,
+            'Activity': activity
         }, ignore_index=True)
 
     def calculate_correlation(self):
-        if 'HeartRate' in self.heart_rate_data.columns and 'fitness_level' in self.heart_rate_data.columns:
-            correlation = self.heart_rate_data[['HeartRate', 'fitness_level']].corr().iloc[0, 1]
+        if 'HeartRate' in self.heart_rate_data.columns and 'Activity' in self.heart_rate_data.columns:
+            correlation = self.heart_rate_data[['HeartRate', 'Activity']].corr().iloc[0, 1]
             return correlation
         else:
-            raise ValueError("HeartRate or fitness_level data is not available")
+            raise ValueError("HeartRate or Activity data is not available")
