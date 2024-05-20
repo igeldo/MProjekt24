@@ -26,12 +26,7 @@ class PersonController:
     def get_properties(self):
         return self.person.get_properties()
 
-
-    def get_resting_heart_rate(self):
-        return self.person.resting_heart_rate()
-
-    def get_maximum_heart_rate(self):
-        return self.person.maximum_heart_rate()
-
+    def get_heart_rate_data_for_date(self, date):
+        return self.person.get_heart_rate_data_for_date(date)
 
 

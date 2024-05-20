@@ -1,17 +1,17 @@
 from datetime import datetime
 import pandas as pd
 
-
 class Person:
     def __init__(self, name, age, sex, fitness_level):
         self.name = name
         self.age = age
         self.sex = sex
         self.fitness_level = fitness_level
-        self.heart_rate_data = pd.DataFrame()  # Leere DataFrame für Herzfrequenzdaten
+        self.heart_rate_data = pd.DataFrame()  # Leerer DataFrame für Herzfrequenzdaten
 
     def import_data(self, excel_datei: str):
         df = pd.read_excel(excel_datei)
+        df['Date'] = pd.to_datetime(df['Date'])
         self.heart_rate_data = df
         return self.heart_rate_data
 
@@ -102,8 +102,6 @@ class Person:
 
     def calculate_correlation(self):
         if 'HeartRate' in self.heart_rate_data.columns and 'Activity' in self.heart_rate_data.columns:
-            # Convert Activity to numerical values
-            self.heart_rate_data['Activity'] = self.heart_rate_data['Activity'].astype('category').cat.codes
             correlation = self.heart_rate_data[['HeartRate', 'Activity']].corr().iloc[0, 1]
             return correlation
         else:
@@ -116,6 +114,13 @@ class Person:
             'Sex': self.sex,
             'Fitness Level': self.fitness_level
         }
+
+    def get_heart_rate_data_for_date(self, date):
+        date = pd.to_datetime(date)
+        day_data = self.heart_rate_data[self.heart_rate_data['Date'].dt.date == date.date()]
+        if day_data.empty:
+            return f"No data available for {date.date()}"
+        return day_data
 
 
 

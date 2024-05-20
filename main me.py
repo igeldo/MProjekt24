@@ -21,6 +21,12 @@ def main():
     print(f"Resting Heart Rate: {resting_heart_rate} bpm")
     print(f"Maximum Heart Rate: {max_heart_rate} bpm")
 
+    # Herzfrequenzdaten für ein bestimmtes Datum analysieren und anzeigen
+    specific_date = '2023-05-20'  # Beispiel Datum, das angezeigt werden soll
+    day_data = controller.get_heart_rate_data_for_date(specific_date)
+    print(f"Heart Rate Data for {specific_date}:")
+    print(day_data)
+
     # Herzfrequenzdaten analysieren und anzeigen
     controller.analyze_heart_rate()
 
@@ -29,4 +35,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
