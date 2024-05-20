@@ -1,6 +1,7 @@
 from datetime import datetime
 import pandas as pd
 
+
 class Person:
     def __init__(self, name, age, sex, fitness_level):
         self.name = name
@@ -107,5 +108,14 @@ class Person:
             return correlation
         else:
             raise ValueError("HeartRate or Activity data is not available")
+
+    def get_properties(self):
+        return {
+            'Name': self.name,
+            'Age': self.age,
+            'Sex': self.sex,
+            'Fitness Level': self.fitness_level
+        }
+
 
 

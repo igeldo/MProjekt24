@@ -7,6 +7,13 @@ def main():
     # Daten importieren
     controller.import_data('V0.1_HFdaten.xlsx')
 
+    # Eigenschaften der Person ausgeben
+    properties = controller.get_properties()
+    print(f"Name: {properties['Name']}")
+    print(f"Age: {properties['Age']}")
+    print(f"Sex: {properties['Sex']}")
+    print(f"Fitness Level: {properties['Fitness Level']}")
+
     # Ruheherzfrequenz und maximale Herzfrequenz berechnen und ausgeben
     resting_heart_rate = controller.get_resting_heart_rate()
     max_heart_rate = controller.get_maximum_heart_rate()
