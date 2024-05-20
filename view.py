@@ -12,8 +12,10 @@ class HeartRateView:
 
     @staticmethod
     def plot_correlation(data):
+        data['Activity'] = data['Activity'].astype('category').cat.codes
         sns.scatterplot(data=data, x='HeartRate', y='Activity')
         plt.title('Correlation between Heart Rate and Activity')
         plt.xlabel('Heart Rate')
         plt.ylabel('Activity')
         plt.show()
+

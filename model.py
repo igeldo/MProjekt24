@@ -101,7 +101,11 @@ class Person:
 
     def calculate_correlation(self):
         if 'HeartRate' in self.heart_rate_data.columns and 'Activity' in self.heart_rate_data.columns:
+            # Convert Activity to numerical values
+            self.heart_rate_data['Activity'] = self.heart_rate_data['Activity'].astype('category').cat.codes
             correlation = self.heart_rate_data[['HeartRate', 'Activity']].corr().iloc[0, 1]
             return correlation
         else:
             raise ValueError("HeartRate or Activity data is not available")
+
+

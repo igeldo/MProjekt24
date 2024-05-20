@@ -17,16 +17,11 @@ class PersonController:
         correlation = self.person.calculate_correlation()
         print(f"Correlation between Heart Rate and Activity: {correlation}")
 
-    def analyze_heart_rate(self):
-        self.view.plot_heart_rate(self.person.heart_rate_data)
+    def get_resting_heart_rate(self):
+        return self.person.resting_heart_rate()
 
-    def analyze_correlation(self):
-        self.view.plot_correlation(self.person.heart_rate_data)
-        correlation = self.person.calculate_correlation()
-        print(f"Correlation between Heart Rate and Activity: {correlation}")
+    def get_maximum_heart_rate(self):
+        return self.person.maximum_heart_rate()
 
-    def analyze_heart_rate(self):
-        self.view.plot_heart_rate(self.person.heart_rate_data)
 
-    def analyze_correlation(self):
-        self.view.plot_correlation(self.person.heart_rate_data)
+
