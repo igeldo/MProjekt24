@@ -1,5 +1,5 @@
 class Leukozyten:
-    def __init__(self):
+    def __init__(self, ):
         self._Abbreviation = 'WBC'
         self._Unit = '/ul'
         self._NormalValue_male_min = 4000
