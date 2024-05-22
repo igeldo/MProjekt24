@@ -1,8 +1,13 @@
+
 from controller import PersonController
+from model import Person
+from view import HeartRateView
+
 
 def main():
-    # Erstellen eines Controllers
-    controller = PersonController('Corinne', 28, 'female', 'good')
+    model= Person("Corinne", 28, 'female', 'good')
+    view = HeartRateView(model)
+    controller = PersonController(model,view)
 
     # Daten importieren
     controller.import_data('V0.1_HFdaten.xlsx')
