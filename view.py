@@ -26,4 +26,3 @@ class HeartRateView:
         plt.ylabel('Activity')
         plt.yticks(list(activity_mapping.values()), list(activity_mapping.keys()))
         plt.show()
-
