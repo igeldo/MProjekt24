@@ -1,13 +1,33 @@
-from person import Person
+from model import Person
+from controller import PersonController
+from view import HeartRateView
 
+def main():
+    name = input("Enter name: ")
+    age = int(input("Enter age: "))
+    sex = input("Enter sex: ")
+    fitness_level = input("Enter fitness level: ")
 
-class Main:
-    def run(self, combine_datetime,heart_rates):
-        person1 = Person('Corinne', 28, 'female', 'good')
-        person1.import_data('V0.1_HFdaten.xlsx')
-        person1.analyze_heart_rate(combine_datetime, heart_rates)
+    model = Person(name, age, sex, fitness_level)
+    view = HeartRateView(model)
+    controller = PersonController(model, view)
 
+    file_path = input("Enter the file path for data import: ").strip().replace('"', '').replace('\\', '/')
+    controller.import_data(file_path)
+
+    properties = controller.get_properties()
+    view.display_properties(properties)
+
+    resting_heart_rate = controller.get_resting_heart_rate()
+    max_heart_rate = controller.get_maximum_heart_rate()
+    view.display_heart_rate(resting_heart_rate, max_heart_rate)
+
+    specific_date = input("Enter a date for heart rate data (YYYY-MM-DD): ")
+    day_data = controller.get_heart_rate_data_for_date(specific_date)
+    view.display_heart_rate_data_for_date(specific_date, day_data)
+
+    controller.analyze_heart_rate()
+    controller.analyze_correlation()
 
 if __name__ == '__main__':
-    main = Main()
-    main.run("22.08.2023", 117) #beispiel für datetime
+    main()
