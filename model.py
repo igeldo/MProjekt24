@@ -102,7 +102,10 @@ class Person:
 
     def calculate_correlation(self):
         if 'HeartRate' in self.heart_rate_data.columns and 'Activity' in self.heart_rate_data.columns:
-            correlation = self.heart_rate_data[['HeartRate', 'Activity']].corr().iloc[0, 1]
+            # Aktivitäten in numerische Werte konvertieren
+            activity_mapping = {"Sleep": 0, "Wake up": 1, "Home": 2, "On the way": 3, "Appointment": 4, "Shower": 5, "Breakfast": 6, "Get ready": 7, "Phone call": 8, "Meeting": 9, "Sport": 10, "Hiking": 11, "Swimming": 12, "Clean up": 13, "Work": 14}
+            self.heart_rate_data['Activity_Numeric'] = self.heart_rate_data['Activity'].map(activity_mapping)
+            correlation = self.heart_rate_data[['HeartRate', 'Activity_Numeric']].corr().iloc[0, 1]
             return correlation
         else:
             raise ValueError("HeartRate or Activity data is not available")
