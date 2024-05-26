@@ -41,6 +41,7 @@ class HeartRateView:
 class HeartRateView:
     def __init__(self, model):
         self.model = model
+        self.data = None
 
     def display_properties(self, properties):
         print(f"Name: {properties['Name']}")
