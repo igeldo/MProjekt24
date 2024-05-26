@@ -26,7 +26,7 @@ def main():
     day_data = controller.get_heart_rate_data_for_date(specific_date)
     view.display_heart_rate_data_for_date(specific_date, day_data)
 
-    controller.analyze_heart_rate()
+    view.analyze_heart_rate()
     controller.analyze_correlation()
 
 if __name__ == '__main__':
