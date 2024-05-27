@@ -6,3 +6,4 @@ class PersonView:
         print(f"Phone Number: {person.getPhoneNumber()}")
         print(f"Abbreviation: {person.getAbbreviation()}")
         print(f"Age: {person.getAge()}")
+        print('\n')

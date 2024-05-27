@@ -1,3 +1,6 @@
+from personView import PersonView
+
+
 class PersonController:
     def __init__(self):
         self.persons = []
