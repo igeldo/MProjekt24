@@ -1,8 +1,7 @@
 from datetime import date
 
-
 class Person:
-    def __init__(self, name: str, surname: str, birthdate, phoneNumber: int, abbreviation: str):
+    def __init__(self, name: str, surname: str, birthdate: str, phoneNumber: int, abbreviation: str):
         self._name = name
         self._surname = surname
         self._birthdate = birthdate
@@ -13,30 +12,27 @@ class Person:
         today = date.today()
         birthdate = date.fromisoformat(self._birthdate)
         age = today.year - birthdate.year
-
-        # Überprüfen, ob der Geburtstag in diesem Jahr noch nicht stattgefunden hat
         if (today.month, today.day) < (birthdate.month, birthdate.day):
             age -= 1
-
         return age
 
-    def getName(self):
+    def get_name(self):
         return self._name
 
-    def getSurname(self):
+    def get_surname(self):
         return self._surname
 
-    def getBirthdate(self):
+    def get_birthdate(self):
         return self._birthdate
 
-    def getPhoneNumber(self):
+    def get_phone_number(self):
         return self._phoneNumber
 
-    def getAbbreviation(self):
+    def get_abbreviation(self):
         return self._abbreviation
 
-    def getAge(self):
+    def get_age(self):
         return self.calculate_age()
 
-    def getAll(self):
+    def get_all(self):
         return [self._name, self._surname, self._birthdate, self._phoneNumber, self._abbreviation]
