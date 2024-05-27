@@ -15,9 +15,17 @@ class Patient(Person):
         Patient.patient_counter += 1
         self._patient_id = Patient.patient_counter
 
-    def show_attributes(self):
-        print('Patient: ',  self._patient_id)
-        super().show_attributes()
-        print('Vorerkrankung:', self._preillness)
-        print('Symptome:', self._symptoms)
-        print('Geschlecht:', self._sex)
+    def getPreIllness(self):
+        return self._preillness
+
+    def getSymptoms(self):
+        return self._symptoms
+
+    def getSex(self):
+        return self._sex
+
+    def getPatientId(self):
+        return self._patient_id
+
+    def getAll(self):
+        super().getAll()

@@ -7,8 +7,8 @@ class Doctor(Person):
         self._profession = profession
         self._title = title
 
-    def show_attributes(self):
-        print('Behandelnder Arzt/ Ärztin: ')
-        print('Titel: ', self._title)
-        super().show_attributes()
-        print('Fachrichtung:', self._profession)
+    def getProfession(self):
+        return self._profession
+
+    def getTitle(self):
+        return self._title

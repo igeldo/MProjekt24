@@ -38,11 +38,5 @@ class Person:
     def getAge(self):
         return self.calculate_age()
 
-
-    def show_attributes(self):
-        print('Vorname:', self._name)
-        print('Nachname:', self._surname)
-        print('Geburtsdatum:', self._birthdate)
-        print('Telefon: ', self._phoneNumber)
-        print('Kürzel:', self._abbreviation)
-        print('Alter:', self.calculate_age())
+    def getAll(self):
+        return [self._name, self._surname, self._birthdate, self._phoneNumber, self._abbreviation]
