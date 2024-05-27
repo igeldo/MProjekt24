@@ -20,6 +20,25 @@ class Person:
 
         return age
 
+    def getName(self):
+        return self._name
+
+    def getSurname(self):
+        return self._surname
+
+    def getBirthdate(self):
+        return self._birthdate
+
+    def getPhoneNumber(self):
+        return self._phoneNumber
+
+    def getAbbreviation(self):
+        return self._abbreviation
+
+    def getAge(self):
+        return self.calculate_age()
+
+
     def show_attributes(self):
         print('Vorname:', self._name)
         print('Nachname:', self._surname)
