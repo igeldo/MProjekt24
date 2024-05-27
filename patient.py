@@ -28,4 +28,4 @@ class Patient(Person):
         return self._patient_id
 
     def getAll(self):
-        super().getAll()
+        return [self._name, self._surname, self._birthdate, self._phoneNumber, self._abbreviation, self._preillness, self._symptoms, self._sex, self._patient_id]

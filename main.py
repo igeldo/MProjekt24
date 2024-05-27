@@ -10,6 +10,7 @@ class Main:
         print('\n')
 
         patient1 = Patient('John', 'Doe', '1990-07-15','+4915123456789', 'JD', 'Keine', 'Fieber', 'Männlich')
+        print(patient1.getAll())
 
 
         print('\n')

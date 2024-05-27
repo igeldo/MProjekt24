@@ -12,3 +12,6 @@ class Doctor(Person):
 
     def getTitle(self):
         return self._title
+
+    def getAll(self):
+        return [self._name, self._surname, self._birthdate, self._phoneNumber, self._abbreviation, self._profession, self._title]
