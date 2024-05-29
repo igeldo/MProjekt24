@@ -1,3 +1,5 @@
+import numpy
+import numpy as np
 import pandas as pd
 from model import Person
 from view import HeartRateView
@@ -71,7 +73,7 @@ class PersonController:
                     return 80
 
     def get_maximum_heart_rate(self):
-        return 220-self.model.age  # Placeholder for maximum heart rate
+        return 220-self.model.age
 
     def get_heart_rate_data_for_date(self, date):
         if self.data is not None:
@@ -80,10 +82,21 @@ class PersonController:
         return None
 
     def analyze_correlation(self):
-        if self.data is not None:
-            correlation_matrix = self.data.corr()
-            print("Correlation Matrix:")
-            print(correlation_matrix)
+        if self.data is not None:#
+            x = np.array (['Sleep','Sleep','Sleep','Busy','Phone','Busy','Busy'])
+            y = np.array ([80, 82, 84, 130, 120, 110, 115])
+            plt.scatter(x,y)
+            plt.show()
+            x1 = self.data['Activity'].to_numpy(dtype='U')
+            y1 = self.data['HeartRate'].to_numpy()
+            plt.scatter(x1, y1)
+            plt.show()
+            #matrix = np.array ([1, 1, 1, 2, 2, 2],[80, 82, 84, 120, 110, 115])
+            #result = np.correlate([1, 1, 1, 2, 2, 2], [80, 82, 84, 120, 110, 115])
+            #result = numpy.correlate(self.data['Activity'], self.data['HeartRate'])
+            #correlation_matrix = self.data.corr()
+            #print("Correlation Matrix:")
+            #print(correlation_matrix)
 
 def analyze_correlation(self):
     if self.data is not None:
