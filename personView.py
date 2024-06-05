@@ -1,6 +1,5 @@
 from doctor import Doctor
 from patient import Patient
-from blutbild import Blutbild
 
 
 class PersonView:
@@ -47,5 +46,5 @@ class PersonView:
 
     def display_blutbild(self, blutbild):
         print(f"Patienten ID: {blutbild.getPatID()}")
-        print(f"Aufnahmedatum: {blutbild.get_aufnahmedatum()}")
-        print(f"Messwerte: {blutbild.get_messwerte()}")
+        print(f"Aufnahmedatum: {blutbild.getDate()}")
+        print(f"Messwerte: {blutbild.getMesswerte()}")

@@ -1,4 +1,6 @@
 from datetime import date
+
+import messwert
 from messwert import Messwert
 
 
@@ -18,4 +20,4 @@ class Blutbild:
         return self._aufnahmedatum
 
     def getMesswerte(self):
-        return self._messwerte
+        return [messwert.get_Messwert() for messwert in self._messwerte]

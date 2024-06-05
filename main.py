@@ -1,4 +1,5 @@
 from blutbildController import BlutbildController
+from messwert import Messwert
 from doctor import Doctor
 from patient import Patient
 from personController import PersonController
@@ -16,6 +17,11 @@ class Main:
         patient1 = Patient('John', 'Doe', '1990-07-15', '+4915123456789', 'JD', 'Keine', 'Fieber', 'Männlich')
         controllerPerson.add_person(patient1)
         blutbild1 = Blutbild('2024-04-06', '1')
+        blutbild1.addMesswert(Messwert('HB','9.0'))
+        blutbild1.addMesswert(Messwert('WBC', '6000'))
+        blutbild1.addMesswert(Messwert('RBC', '5.0'))
+        blutbild1.addMesswert(Messwert('PLT', '150000'))
+
         controllerBlutbild.add_Blutbild(blutbild1)
 
         patient2 = Patient('Jane', 'Smith', '1985-03-20', '+4916234567890', 'JS', 'Vorerkrankung am Herzen', 'Husten',
@@ -31,6 +37,10 @@ class Main:
         controllerPerson.add_person(patient4)
 
         controllerPerson.display_persons()
+
+        print(f"Blutbilder der Patienten:")
+        print('\n')
+
         controllerBlutbild.display_Blutbilder()
 
 
