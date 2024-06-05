@@ -1,5 +1,8 @@
 from doctor import Doctor
 from patient import Patient
+from blutbild import Blutbild
+
+
 class PersonView:
     def display_person(self, person):
         if isinstance(person, Patient):
@@ -41,3 +44,8 @@ class PersonView:
         print(f"Abbreviation: {person.get_abbreviation()}")
         print(f"Age: {person.get_age()}")
         print('\n')
+
+    def display_blutbild(self, blutbild):
+        print(f"Patienten ID: {blutbild.getPatID()}")
+        print(f"Aufnahmedatum: {blutbild.get_aufnahmedatum()}")
+        print(f"Messwerte: {blutbild.get_messwerte()}")
