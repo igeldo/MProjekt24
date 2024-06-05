@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+
 class HeartRateView:
     def __init__(self, model):
         self.model = model
@@ -21,16 +22,10 @@ class HeartRateView:
         else:
             print("No data available for this date.")
 
-    def display_heart_rate_analysis(self):
-        print("Displaying heart rate analysis plot...")
-
-    def display_correlation_analysis(self):
-        print("Displaying correlation analysis...")
-
-    def analyze_heart_rate(self):
-        if self.data is not None:
+    def analyze_heart_rate(self, data):
+        if data is not None:
             plt.figure(figsize=(10, 6))
-            plt.plot(self.data['Date'], self.data['HeartRate'], label='Heart Rate')
+            plt.plot(data['Date'], data['HeartRate'], label='Heart Rate')
             plt.xlabel('Date')
             plt.ylabel('Heart Rate (bpm)')
             plt.title('Heart Rate Over Time')
@@ -38,4 +33,18 @@ class HeartRateView:
             plt.grid(True)
             plt.show()
 
+    def display_correlation_analysis(self, correlation_matrix):
+        print("Correlation Matrix:")
+        print(correlation_matrix)
 
+    def display_mean_heart_rate_per_activity(self, mean_heart_rate_per_activity):
+        activities = mean_heart_rate_per_activity.index
+        mean_heart_rates = mean_heart_rate_per_activity.values
+
+        plt.figure(figsize=(10, 6))
+        plt.bar(activities, mean_heart_rates)
+        plt.xlabel('Activity')
+        plt.ylabel('Mean Heart Rate (bpm)')
+        plt.title('Mean Heart Rate per Activity')
+        plt.xticks(rotation=45)
+        plt.show()
