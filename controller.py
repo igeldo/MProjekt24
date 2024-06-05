@@ -17,13 +17,7 @@ class PersonController:
         except Exception as e:
             print(f"Error importing data: {e}")
 
-    def get_properties(self):
-        return {
-            'Name': self.model.name,
-            'Age': self.model.age,
-            'Sex': self.model.sex,
-            'Fitness Level': self.model.fitness_level
-        }
+
 
     def get_resting_heart_rate(self):
         if self.model.sex == 'male':

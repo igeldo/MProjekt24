@@ -1,8 +1,13 @@
+
 from controller import PersonController
+from model import Person
+from view import HeartRateView
+
 
 def main():
-    # Erstellen eines Controllers
-    controller = PersonController('Corinne', 28, 'female', 'good')
+    model= Person("Corinne", 28, 'female', 'good')
+    view = HeartRateView(model)
+    controller = PersonController(model,view)
 
     # Daten importieren
     controller.import_data('V0.1_HFdaten.xlsx')
@@ -22,7 +27,7 @@ def main():
     print(f"Maximum Heart Rate: {max_heart_rate} bpm")
 
     # Herzfrequenzdaten für ein bestimmtes Datum analysieren und anzeigen
-    specific_date = '2023-05-20'  # Beispiel Datum, das angezeigt werden soll
+    specific_date = '2023-08-20'  # Beispiel Datum, das angezeigt werden soll
     day_data = controller.get_heart_rate_data_for_date(specific_date)
     print(f"Heart Rate Data for {specific_date}:")
     print(day_data)

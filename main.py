@@ -14,9 +14,7 @@ def main():
 
     file_path = input("Enter the file path for data import: ").strip().replace('"', '').replace('\\', '/')
     controller.import_data(file_path)
-
-    properties = controller.get_properties()
-    view.display_properties(properties)
+    view.display_properties()
 
     resting_heart_rate = controller.get_resting_heart_rate()
     max_heart_rate = controller.get_maximum_heart_rate()
