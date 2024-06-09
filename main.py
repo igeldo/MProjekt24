@@ -14,11 +14,9 @@ def main():
 
     file_path = input("Enter the file path for data import: ").strip().replace('"', '').replace('\\', '/')
     controller.import_data(file_path)
-    view.display_properties()
 
-    resting_heart_rate = controller.get_resting_heart_rate()
-    max_heart_rate = controller.get_maximum_heart_rate()
-    view.display_heart_rate(resting_heart_rate, max_heart_rate)
+    view.display_properties()
+    view.display_heart_rate()
 
     specific_date = input("Enter a date for heart rate data (YYYY-MM-DD): ")
     day_data = controller.get_heart_rate_data_for_date(specific_date)

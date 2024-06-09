@@ -5,13 +5,16 @@ class HeartRateView:
         self.model = model
         self.data = None
 
-    def display_properties(self, properties):
+    def display_properties(self):
+        properties = self.model.get_properties()
         print(f"Name: {properties['Name']}")
         print(f"Age: {properties['Age']}")
         print(f"Sex: {properties['Sex']}")
         print(f"Fitness Level: {properties['Fitness Level']}")
 
-    def display_heart_rate(self, resting_heart_rate, max_heart_rate):
+    def display_heart_rate(self):
+        resting_heart_rate = self.model.get_resting_heart_rate()
+        max_heart_rate = self.model.get_maximum_heart_rate()
         print(f"Resting Heart Rate: {resting_heart_rate} bpm")
         print(f"Maximum Heart Rate: {max_heart_rate} bpm")
 

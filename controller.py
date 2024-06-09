@@ -17,57 +17,6 @@ class PersonController:
         except Exception as e:
             print(f"Error importing data: {e}")
 
-
-
-    def get_resting_heart_rate(self):
-        if self.model.sex == 'male':
-            if self.model.age < 30:
-                if self.model.fitness_level == 'excellent':
-                    return 65
-                elif self.model.fitness_level == 'good':
-                    return 68
-                elif self.model.fitness_level == 'low':
-                    return 72
-            elif 30 <= self.model.age < 50:
-                if self.model.fitness_level == 'excellent':
-                    return 67
-                elif self.model.fitness_level == 'good':
-                    return 70
-                elif self.model.fitness_level == 'low':
-                    return 74
-            elif self.model.age >= 50:
-                if self.model.fitness_level == 'excellent':
-                    return 70
-                elif self.model.fitness_level == 'good':
-                    return 72
-                elif self.model.fitness_level == 'low':
-                    return 76
-        elif self.model.sex == 'female':
-            if self.model.age < 30:
-                if self.model.fitness_level == 'excellent':
-                    return 68
-                elif self.model.fitness_level == 'good':
-                    return 71
-                elif self.model.fitness_level == 'low':
-                    return 75
-            elif 30 <= self.model.age < 50:
-                if self.model.fitness_level == 'excellent':
-                    return 70
-                elif self.model.fitness_level == 'good':
-                    return 73
-                elif self.model.fitness_level == 'low':
-                    return 77
-            elif self.model.age >= 50:
-                if self.model.fitness_level == 'excellent':
-                    return 73
-                elif self.model.fitness_level == 'good':
-                    return 76
-                elif self.model.fitness_level == 'low':
-                    return 80
-
-    def get_maximum_heart_rate(self):
-        return 220 - self.model.age
-
     def get_heart_rate_data_for_date(self, date):
         if self.data is not None:
             day_data = self.data[self.data['Date'] == date]
