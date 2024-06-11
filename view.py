@@ -2,7 +2,10 @@ from doctor import Doctor
 from patient import Patient
 
 
-class PersonView:
+class View:
+    def __init__(self, model):
+        self._model = model
+
     def display_person(self, person):
         if isinstance(person, Patient):
             self.display_patient(person)
@@ -22,6 +25,12 @@ class PersonView:
         print(f"Phone Number: {patient.get_phone_number()}")
         print(f"Pre-Illness: {patient.get_preillness()}")
         print(f"Symptoms: {patient.get_symptoms()}")
+        print('\n')
+        print("Blutbilder des Patienten:")
+        for blutbild in patient.get_Blutbilder():
+            print(f"Aufnahmedatum: {blutbild.getDate()}")
+            for result in blutbild.checkMesswerte():
+                print(f"{result[0]}: {result[1]} ({result[2]})")
         print('\n')
 
     def display_doctor(self, doctor):

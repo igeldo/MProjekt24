@@ -1,15 +1,17 @@
-from model import Model
-from personView import PersonView
+from view import View
 
 
 class Controller:
+    def __init__(self, model, view):
+        self._model = model
+        self._view = view
+    def display_persons(self):
+        for person in self._model._persons:
+            self._view.display_person(person)
 
-    def display_persons(self, model):
-        view = PersonView()
-        for person in model._persons:
-            view.display_person(person)
+    def display_Blutbilder(self):
+        for blutbild in self._model._Blutbilder:
+            self._view.display_blutbild(blutbild)
 
-    def display_Blutbilder(self, model):
-        view = PersonView()
-        for blutbild in model._Blutbilder:
-            view.display_blutbild(blutbild)
+    def start(self):
+        self.display_persons()

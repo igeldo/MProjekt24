@@ -1,3 +1,8 @@
+from blutbild import Blutbild
+from patient import Patient
+from person import Person
+
+
 class Model:
     def __init__(self):
         self._Blutbilder = []
@@ -8,3 +13,8 @@ class Model:
 
     def add_person(self, person):
         self._persons.append(person)
+
+    def linkBlutbildtoPatient(self, patient: Patient, blutbild: Blutbild):
+        patient.add_Blutbilder(blutbild)
+        blutbild.setSex(patient.get_sex())
+

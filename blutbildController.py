@@ -1,4 +1,4 @@
-from personView import PersonView
+from view import View
 
 
 class BlutbildController:
@@ -9,6 +9,6 @@ class BlutbildController:
         self.Blutbilder.append(blutbild)
 
     def display_Blutbilder(self):
-        view = PersonView()
+        view = View()
         for blutbild in self.Blutbilder:
             view.display_blutbild(blutbild)
