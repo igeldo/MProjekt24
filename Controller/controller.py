@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
-from model import Person
-from view import HeartRateView
+
 
 class PersonController:
     def __init__(self, model, view):

@@ -1,7 +1,7 @@
 
-from controller import PersonController
-from model import Person
-from view import HeartRateView
+from Controller.controller import PersonController
+from Model.model import Person
+from View.view import HeartRateView
 
 
 def main():

@@ -1,6 +1,6 @@
-from model import Person
-from controller import PersonController
-from view import HeartRateView
+from Model.model import Person
+from Controller.controller import PersonController
+from View.view import HeartRateView
 
 def main():
     name = input("Enter name: ")
