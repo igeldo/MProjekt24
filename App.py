@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 
 # Importiere hier die notwendigen Klassen und initialisiere das Modell und den Controller
-from blutbild import Blutbild
+from Model.blutbild import Blutbild
 from messwert import Messwert
 from blutbildController import BlutbildController
 

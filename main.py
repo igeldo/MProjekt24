@@ -1,5 +1,5 @@
 from Controller import Controller
-from blutbild import Blutbild
+from Model.blutbild import Blutbild
 from doctor import Doctor
 from messwert import Messwert
 from model import Model

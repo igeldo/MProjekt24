@@ -1,6 +1,5 @@
-from blutbild import Blutbild
+from Model.blutbild import Blutbild
 from patient import Patient
-from person import Person
 
 
 class Model:

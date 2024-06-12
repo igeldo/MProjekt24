@@ -1,4 +1,4 @@
-from blutbild import Blutbild
+from Model.blutbild import Blutbild
 from person import Person
 
 
