@@ -2,15 +2,20 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
+from Controller.Controller import Controller
 from Controller.ControllerGUI import ControllerGUI
-from View.ViewGUI import ViewGUI
-from View.app import App
-from Controller import Controller
-from Model.blutbild import Blutbild
 from Model.doctor import Doctor
-from Model.messwert import Messwert
 from Model.model import Model
+
+from View.ViewGUI import ViewGUI
+
+
+from Model.blutbild import Blutbild
+
+from Model.messwert import Messwert
+
 from Model.patient import Patient
+from View.app import App
 from View.view import View
 
 
@@ -19,8 +24,11 @@ class Main:
         MainModel = Model()
         MainView = View(MainModel)
         MainController = Controller(MainModel, MainView)
+
+        app = QApplication(sys.argv)
         GUIView = ViewGUI(MainModel)
-        GUIController = ControllerGUI(MainModel, GUIView)
+        GUIController = ControllerGUI(MainModel, GUIView, app)
+        ex = App(GUIController, GUIView)
 
 
         doctor1 = Doctor('Prof. Dr.', 'Maral', 'Safadi', '1970-09-06', +4917765432109, 'MS', 'Internistin')
@@ -54,17 +62,15 @@ class Main:
                            'Kopfschmerzen, Schwächegefühl', 'Männlich')
         MainModel.add_person(patient3)
 
-        patient4 = Patient('Steffanie', 'Vogel', '1995-11-12', +4918456789012, 'SV', 'Asthma',
-                           'Atembeschwerden, Übelkeit', 'Weiblich')
-        MainModel.add_person(patient4)
 
         MainController.start()
+
+        app = QApplication(sys.argv)
+        sys.exit(app.exec_())
 
 
 
 if __name__ == '__main__':
     main = Main()
     main.run()
-    app = QApplication(sys.argv)
-    ex = App(ControllerGUI, ViewGUI)
-    sys.exit(app.exec_())
+

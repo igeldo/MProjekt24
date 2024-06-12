@@ -1,7 +1,7 @@
 from datetime import date
 
-from messwert import Messwert
-from normwert import Normwerte
+from Model.messwert import Messwert
+from Model.normwert import Normwerte
 
 
 class Blutbild:

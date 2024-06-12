@@ -1,10 +1,9 @@
-from PyQt5.QtWidgets import QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout
+import sys
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 
 from Controller import ControllerGUI
-import ViewGUI
-
-
-# Importiere hier die notwendigen Klassen und initialisiere das Modell und den Controller
+from Model.model import Model
+from View.ViewGUI import ViewGUI
 
 
 class App(QWidget):
@@ -44,16 +43,16 @@ class App(QWidget):
         self.entry4 = QLineEdit(self)
         self.layout.addWidget(self.entry4)
 
-        self.addButton = QPushButton('Messwert speichern', self)
-        self.addButton.clicked.connect(self._controller.add_Messwert)
-        self.layout.addWidget(self.addButton)
+        self.addButton1 = QPushButton('Messwert speichern', self)
+        self.addButton1.clicked.connect(self.handle_add_Messwert)
+        self.layout.addWidget(self.addButton1)
 
-        self.addButton = QPushButton('Blutbild hinzufügen', self)
-        self.addButton.clicked.connect(self._controller.add_blutbild)
-        self.layout.addWidget(self.addButton)
+        self.addButton2 = QPushButton('Blutbild hinzufügen', self)
+        self.addButton2.clicked.connect(self.handle_add_blutbild)
+        self.layout.addWidget(self.addButton2)
 
-        self.displayButton = QPushButton('Blutbilder anzeigen', self)
-        self.displayButton.clicked.connect(self._view.display_allData)
+        self.displayButton = QPushButton('alle Daten anzeigen', self)
+        self.displayButton.clicked.connect(self.handle_display_allData)
         self.layout.addWidget(self.displayButton)
 
         self.resultLabel = QLabel('', self)
@@ -63,3 +62,34 @@ class App(QWidget):
         self.setLayout(self.layout)
         self.show()
 
+    def handle_add_Messwert(self):
+        try:
+            self._controller.add_Messwert()
+        except Exception as e:
+            self.show_error_message(f"Fehler beim Hinzufügen des Messwerts: {e}")
+
+    def handle_add_blutbild(self):
+        try:
+            self._controller.add_blutbild()
+        except Exception as e:
+            self.show_error_message(f"Fehler beim Hinzufügen des Blutbilds: {e}")
+
+    def handle_display_allData(self):
+        try:
+            self._view.display_allData(self)
+        except Exception as e:
+            self.show_error_message(f"Fehler beim Anzeigen aller Daten: {e}")
+
+    def show_error_message(self, message):
+        QMessageBox.critical(self, 'Fehler', message)
+        print(message)
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    model = Model()
+    view = ViewGUI(model)
+    controller = ControllerGUI(model, view, None)
+    ex = App(controller, view)
+    view._app = ex  # set the app reference after creating the App instance
+    controller._gui = ex  # set the gui reference after creating the App instance
+    sys.exit(app.exec_())

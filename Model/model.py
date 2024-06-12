@@ -1,5 +1,5 @@
 from Model.blutbild import Blutbild
-from patient import Patient
+from Model.patient import Patient
 
 
 class Model:
@@ -13,10 +13,15 @@ class Model:
     def add_person(self, person):
         self._persons.append(person)
 
+    def get_Personen(self):
+        return self._persons
+
+    def get_Blutbilder(self):
+        return self._Blutbilder
+
     def linkBlutbildtoPatient(self, patient: Patient, blutbild: Blutbild):
         patient.add_Blutbilder(blutbild)
         blutbild.setSex(patient.get_sex())
 
-    def get_Blutbilder(self):
-        return [blutbild for blutbild in self._Blutbilder]
+
 
