@@ -19,9 +19,15 @@ class Model:
     def get_Blutbilder(self):
         return self._Blutbilder
 
-    def linkBlutbildtoPatient(self, patient: Patient, blutbild: Blutbild):
-        patient.add_Blutbilder(blutbild)
-        blutbild.setSex(patient.get_sex())
+    def linkBlutbildtoPatient(self, blutbild: Blutbild):
+        id = blutbild.getPatID()
+        correctPerson = None
+        for person in self._persons:
+            if isinstance(person, Patient):
+                if person.get_patient_id() == id:
+                    correctPerson = person
+                    break  # Patient gefunden, Schleife abbrechen
 
-
-
+        if correctPerson:
+            correctPerson.add_Blutbilder(blutbild)
+            blutbild.setSex(correctPerson.get_sex())

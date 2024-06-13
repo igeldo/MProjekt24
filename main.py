@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication
 
 from Controller.Controller import Controller
 from Controller.ControllerGUI import ControllerGUI
+
 from Model.doctor import Doctor
 from Model.model import Model
 
@@ -16,6 +17,7 @@ from Model.messwert import Messwert
 
 from Model.patient import Patient
 from View.app import App
+
 from View.view import View
 
 
@@ -27,7 +29,7 @@ class Main:
 
         app = QApplication(sys.argv)
         GUIView = ViewGUI(MainModel)
-        GUIController = ControllerGUI(MainModel, GUIView, app)
+        GUIController = ControllerGUI(MainModel, GUIView)
         ex = App(GUIController, GUIView)
 
 
@@ -43,7 +45,7 @@ class Main:
         blutbild1.addMesswert(Messwert('PLT', 150000))
 
         MainModel.add_Blutbild(blutbild1)
-        MainModel.linkBlutbildtoPatient(patient1, blutbild1)
+        MainModel.linkBlutbildtoPatient(blutbild1)
 
         blutbild2 = Blutbild('2024-04-06', 1)
         blutbild2.addMesswert(Messwert('HB', 9.5))
@@ -52,7 +54,7 @@ class Main:
         blutbild2.addMesswert(Messwert('PLT', 300000))
 
         MainModel.add_Blutbild(blutbild2)
-        MainModel.linkBlutbildtoPatient(patient1, blutbild2)
+        MainModel.linkBlutbildtoPatient(blutbild2)
 
         patient2 = Patient('Jane', 'Smith', '1985-03-20', +4916234567890, 'JS', 'Vorerkrankung am Herzen', 'Husten',
                            'Weiblich')
@@ -65,7 +67,7 @@ class Main:
 
         MainController.start()
 
-        app = QApplication(sys.argv)
+
         sys.exit(app.exec_())
 
 

@@ -1,5 +1,6 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
+
+from PyQt5.QtWidgets import QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QApplication, QWidget
 
 from Controller import ControllerGUI
 from Model.model import Model
@@ -7,10 +8,10 @@ from View.ViewGUI import ViewGUI
 
 
 class App(QWidget):
-    def __init__(self, controller: ControllerGUI, view: ViewGUI):
+    def __init__(self, controllergui: ControllerGUI, view: ViewGUI):
         super().__init__()
         self._title = 'Krankenhaus Verwaltung'
-        self._controller = controller
+        self._controller = controllergui
         self._view = view
         self.initUI()
 
@@ -64,13 +65,14 @@ class App(QWidget):
 
     def handle_add_Messwert(self):
         try:
-            self._controller.add_Messwert()
+            self._controller.add_Messwert(self)
         except Exception as e:
             self.show_error_message(f"Fehler beim Hinzufügen des Messwerts: {e}")
 
     def handle_add_blutbild(self):
         try:
-            self._controller.add_blutbild()
+            self._controller.add_blutbild(self)
+            self._view.display_allData(self)
         except Exception as e:
             self.show_error_message(f"Fehler beim Hinzufügen des Blutbilds: {e}")
 
@@ -84,12 +86,4 @@ class App(QWidget):
         QMessageBox.critical(self, 'Fehler', message)
         print(message)
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    model = Model()
-    view = ViewGUI(model)
-    controller = ControllerGUI(model, view, None)
-    ex = App(controller, view)
-    view._app = ex  # set the app reference after creating the App instance
-    controller._gui = ex  # set the gui reference after creating the App instance
-    sys.exit(app.exec_())
+

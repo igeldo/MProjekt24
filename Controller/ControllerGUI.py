@@ -3,19 +3,20 @@ from PyQt5.QtWidgets import QMessageBox
 
 from Model.blutbild import Blutbild
 from Model.messwert import Messwert
+from Model.model import Model
 
 
 class ControllerGUI:
-    def __init__(self, model, view, gui):
+    def __init__(self, model: Model, view):
         self._model = model
         self._view = view
-        self._gui = gui
-        self._blutbildneu = Blutbild(None, None)
 
-    def add_blutbild(self):
+        self._blutbildneu = Blutbild(0000-00-00, 0)
+
+    def add_blutbild(self, gui):
         try:
-            patient_id = self._gui.entry1.text()
-            aufnahmedatum = self._gui.entry2.text()
+            patient_id = gui.entry1.text()
+            aufnahmedatum = gui.entry2.text()
 
             if not (patient_id and aufnahmedatum):
                 raise ValueError("Patienten ID und Aufnahmedatum müssen ausgefüllt sein.")
@@ -23,31 +24,32 @@ class ControllerGUI:
             self._blutbildneu.addPatID(patient_id)
             self._blutbildneu.addAufnahmedatum(date.fromisoformat(aufnahmedatum))
             self._model.add_Blutbild(self._blutbildneu)
-            self._blutbildneu.clearAll()
-            QMessageBox.information(self._gui, 'Erfolg', 'Blutbild erfolgreich hinzugefügt.')
+            self._model.linkBlutbildtoPatient(self._blutbildneu)
+#            self._blutbildneu.clearAll()
+            QMessageBox.information(gui, 'Erfolg', 'Blutbild erfolgreich hinzugefügt.')
         except ValueError as e:
-            QMessageBox.critical(self._gui, 'Fehler', f'Fehler bei der Eingabe: {e}')
+            QMessageBox.critical(gui, 'Fehler', f'Fehler bei der Eingabe: {e}')
         except Exception as e:
-            QMessageBox.critical(self._gui, 'Fehler', f'Unerwarteter Fehler: {e}')
+            QMessageBox.critical(gui, 'Fehler', f'Unerwarteter Fehler: {e}')
             print(f"Fehler in add_blutbild: {e}")
 
-    def add_Messwert(self):
+    def add_Messwert(self, gui):
         try:
-            messwert_type = self._gui.entry3.text()
-            messwert_value = self._gui.entry4.text()
+            messwert_type = gui.entry3.text()
+            messwert_value = gui.entry4.text()
 
             if not (messwert_type and messwert_value):
                 raise ValueError("Messwert Typ und Messwert Wert müssen ausgefüllt sein.")
 
-            self._blutbildneu.addMesswert(Messwert(messwert_type, float(messwert_value)))
-            QMessageBox.information(self._gui, 'Erfolg', 'Messwert erfolgreich gespeichert.')
-            self.clear_Messwertentries()
+            self._blutbildneu.addMesswert(Messwert(messwert_type, messwert_value))
+            QMessageBox.information(gui, 'Erfolg', 'Messwert erfolgreich gespeichert.')
+            self.clear_Messwertentries(gui)
         except ValueError as e:
-            QMessageBox.critical(self._gui, 'Fehler', f'Fehler bei der Eingabe: {e}')
+            QMessageBox.critical(gui, 'Fehler', f'Fehler bei der Eingabe: {e}')
         except Exception as e:
-            QMessageBox.critical(self._gui, 'Fehler', f'Unerwarteter Fehler: {e}')
+            QMessageBox.critical(gui, 'Fehler', f'Unerwarteter Fehler: {e}')
             print(f"Fehler in add_Messwert: {e}")
 
-    def clear_Messwertentries(self):
-        self._gui.entry3.clear()
-        self._gui.entry4.clear()
+    def clear_Messwertentries(self, gui):
+        gui.entry3.clear()
+        gui.entry4.clear()
