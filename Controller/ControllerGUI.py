@@ -16,12 +16,13 @@ class ControllerGUI:
     def add_blutbild(self, gui):
         try:
             patient_id = gui.entry1.text()
+            pat_id = int(patient_id)
             aufnahmedatum = gui.entry2.text()
 
             if not (patient_id and aufnahmedatum):
                 raise ValueError("Patienten ID und Aufnahmedatum müssen ausgefüllt sein.")
 
-            self._blutbildneu.addPatID(patient_id)
+            self._blutbildneu.addPatID(pat_id)
             self._blutbildneu.addAufnahmedatum(date.fromisoformat(aufnahmedatum))
             self._model.add_Blutbild(self._blutbildneu)
             self._model.linkBlutbildtoPatient(self._blutbildneu)
@@ -37,11 +38,12 @@ class ControllerGUI:
         try:
             messwert_type = gui.entry3.text()
             messwert_value = gui.entry4.text()
+            messwert = float(messwert_value)
 
             if not (messwert_type and messwert_value):
                 raise ValueError("Messwert Typ und Messwert Wert müssen ausgefüllt sein.")
 
-            self._blutbildneu.addMesswert(Messwert(messwert_type, messwert_value))
+            self._blutbildneu.addMesswert(Messwert(messwert_type, messwert))
             QMessageBox.information(gui, 'Erfolg', 'Messwert erfolgreich gespeichert.')
             self.clear_Messwertentries(gui)
         except ValueError as e:

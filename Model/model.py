@@ -20,11 +20,11 @@ class Model:
         return self._Blutbilder
 
     def linkBlutbildtoPatient(self, blutbild: Blutbild):
-        id = blutbild.getPatID()
+        blutid = blutbild.getPatID()
         correctPerson = None
         for person in self._persons:
             if isinstance(person, Patient):
-                if person.get_patient_id() == id:
+                if person.get_patient_id() == blutid:
                     correctPerson = person
                     break  # Patient gefunden, Schleife abbrechen
 

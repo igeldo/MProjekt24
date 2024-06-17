@@ -11,7 +11,6 @@ class Blutbild:
         self._aufnahmedatum = Aufnahmedatum
         self._messwerte = []
 
-
     def addMesswert(self, messwert: Messwert):
         self._messwerte.append(messwert)
 
@@ -20,7 +19,6 @@ class Blutbild:
 
     def addAufnahmedatum(self, aufnahmedatum: date):
         self._aufnahmedatum = aufnahmedatum
-
 
     def getPatID(self):
         return self._patID
@@ -38,7 +36,6 @@ class Blutbild:
         self._messwerte = []
         self._patID = None
         self._aufnahmedatum = None
-
 
     def checkMesswerte(self):
         results = []

@@ -6,7 +6,6 @@ class ViewGUI:
     def __init__(self, model):
         self._model = model
 
-
     def display_allData(self, gui):
         try:
             personen = self._model.get_Personen()
@@ -15,6 +14,9 @@ class ViewGUI:
             for person in personen:
                 result_text += f"{self.display_person(person)}"
                 result_text += ' \n'
+
+            result_text += 'alle Blutbilder: \n'
+            result_text += f"{self.display_blutbilder()}"
 
             gui.resultLabel.setText(result_text)
         except Exception as e:
@@ -26,7 +28,6 @@ class ViewGUI:
             return self.display_patient(person)
         elif isinstance(person, Doctor):
             return self.display_doctor(person)
-
 
     def display_patient(self, patient):
         text = ""
@@ -54,4 +55,11 @@ class ViewGUI:
 
         return text
 
+    def display_blutbilder(self):
+        text = ""
+        blutbilder = self._model.get_Blutbilder()
+        for blutbild in blutbilder:
+            text += f"ID: {blutbild.getPatID()}, Datum: {blutbild.getDate()} \n"
+            text += f"Messwerte: {blutbild.getMesswerte()} \n"
 
+        return text
