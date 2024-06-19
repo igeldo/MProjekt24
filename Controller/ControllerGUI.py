@@ -12,7 +12,7 @@ class ControllerGUI:
         self._model = model
         self._view = view
 
-        self._blutbildneu = Blutbild(date(0000, 00, 00), 0)
+        self._blutbildneu = Blutbild(date(1999, 1, 1), 0)
 
     def add_blutbild(self, gui):
         try:
