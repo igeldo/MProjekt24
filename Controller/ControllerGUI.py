@@ -1,4 +1,5 @@
 from datetime import date
+
 from PyQt5.QtWidgets import QMessageBox
 
 from Model.blutbild import Blutbild
@@ -11,7 +12,7 @@ class ControllerGUI:
         self._model = model
         self._view = view
 
-        self._blutbildneu = Blutbild(0000-00-00, 0)
+        self._blutbildneu = Blutbild(date(0000, 00, 00), 0)
 
     def add_blutbild(self, gui):
         try:
@@ -26,7 +27,7 @@ class ControllerGUI:
             self._blutbildneu.addAufnahmedatum(date.fromisoformat(aufnahmedatum))
             self._model.add_Blutbild(self._blutbildneu)
             self._model.linkBlutbildtoPatient(self._blutbildneu)
-#            self._blutbildneu.clearAll()
+            #            self._blutbildneu.clearAll()
             QMessageBox.information(gui, 'Erfolg', 'Blutbild erfolgreich hinzugefügt.')
         except ValueError as e:
             QMessageBox.critical(gui, 'Fehler', f'Fehler bei der Eingabe: {e}')

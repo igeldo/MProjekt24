@@ -40,21 +40,21 @@ class Blutbild:
     def checkMesswerte(self):
         results = []
         for messwert in self._messwerte:
-            type, patientValue = messwert.get_Messwert()
+            blood_type, patientValue = messwert.get_Messwert()
             normwert = None
             if self._sex == "Männlich":
-                normwert = Normwerte[type + "Male"].value
+                normwert = Normwerte[blood_type + "Male"].value
             elif self._sex == "Weiblich":
-                normwert = Normwerte[type + "Female"].value
+                normwert = Normwerte[blood_type + "Female"].value
 
             if normwert:
                 min_value = normwert.get_MinValue()
                 max_value = normwert.get_MaxValue()
                 if min_value <= patientValue <= max_value:
-                    results.append((type, patientValue, "normal"))
+                    results.append((blood_type, patientValue, "normal"))
                 elif patientValue < min_value:
-                    results.append((type, patientValue, "zu gering"))
+                    results.append((blood_type, patientValue, "zu gering"))
                 elif patientValue > max_value:
-                    results.append((type, patientValue, "zu hoch"))
+                    results.append((blood_type, patientValue, "zu hoch"))
 
         return results

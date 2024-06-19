@@ -1,9 +1,6 @@
-import sys
-
-from PyQt5.QtWidgets import QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QApplication, QWidget, QHBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QWidget, QHBoxLayout
 
 from Controller import ControllerGUI
-from Model.model import Model
 from View.ViewGUI import ViewGUI
 
 
@@ -96,5 +93,3 @@ class App(QWidget):
     def show_error_message(self, message):
         QMessageBox.critical(self, 'Fehler', message)
         print(message)
-
-

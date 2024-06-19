@@ -4,11 +4,11 @@ from Model.patient import Patient
 
 class Model:
     def __init__(self):
-        self._Blutbilder = []
+        self._blutbilder = []
         self._persons = []
 
     def add_Blutbild(self, blutbild):
-        self._Blutbilder.append(blutbild)
+        self._blutbilder.append(blutbild)
 
     def add_person(self, person):
         self._persons.append(person)
@@ -17,7 +17,7 @@ class Model:
         return self._persons
 
     def get_Blutbilder(self):
-        return self._Blutbilder
+        return self._blutbilder
 
     def linkBlutbildtoPatient(self, blutbild: Blutbild):
         blutid = blutbild.getPatID()

@@ -15,7 +15,6 @@ class Patient(Person):
         self._patient_id = Patient.patient_counter
         self._Blutbilder = []
 
-
     def add_Blutbilder(self, blutbild: Blutbild):
         self._Blutbilder.append(blutbild)
 
