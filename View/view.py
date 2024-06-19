@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class HeartRateView:
     def __init__(self, model):
@@ -22,6 +23,19 @@ class HeartRateView:
         print(f"Heart Rate Data for {date}:")
         if data is not None and not data.empty:
             print(data)
+            if 'Time' in data.columns:
+                data = data.copy() # avoids SettingWithCopyWarning
+                data['DateTime'] = pd.to_datetime(data['Date'].astype(str) + ' ' + data['Time'].astype(str))
+                plt.figure(figsize=(10, 6)) # Plot for heartrate of specific Date
+                plt.plot(data['DateTime'], data['HeartRate'], label='Heart Rate')
+                plt.xlabel('Time')
+                plt.ylabel('Heart Rate (bpm)')
+                plt.title(f'Heart Rate Data for {date}')
+                plt.legend()
+                plt.grid(True)
+                plt.show()
+            else:
+                print("Data does not contain a 'Time' column for plotting.")
         else:
             print("No data available for this date.")
 
