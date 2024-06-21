@@ -17,8 +17,14 @@ python -m pip install -r requirements.txt
 
 Für jede neu geöffnete Shell muss einmalig in die virtuelle Umgebung gewechselt werden:
 ```shell
-cd <pfad_zu_src>/HelloPython
+cd <pfad_zu_src>/MProjekt24
 source venv/bin/activate
+```
+
+### Ausführen des Programms
+
+```shell
+python main.py
 ```
 
 ### Ausführen der Tests
@@ -27,10 +33,4 @@ Ausführen aller Unit-Tests im Verzeichnis 'tests'
 
 ```shell
 pytest
-```
-
-### Ausführen des Programms
-
-```shell
-python main.py
 ```
