@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import Mock
 import pandas as pd
+import numpy as np
 from Controller.controller import PersonController
 from Model.model import Person
 
@@ -23,7 +24,7 @@ class Test_Correlation(unittest.TestCase):
         # Call the method from controller
         self.controller.analyze_correlation()
 
-        expected_correlation_matrix = data.corr()
+        expected_correlation_matrix = data.select_dtypes(include=[np.number]).corr()
 
 
         self.view.display_correlation_analysis.assert_called_with(expected_correlation_matrix)
