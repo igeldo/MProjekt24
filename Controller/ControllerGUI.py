@@ -1,10 +1,12 @@
+import sys
 from datetime import date
 
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QApplication
 
 from Model.blutbild import Blutbild
 from Model.messwert import Messwert
 from Model.model import Model
+from View.app import App
 
 
 class ControllerGUI:
@@ -56,3 +58,8 @@ class ControllerGUI:
     def clear_Messwertentries(self, gui):
         gui.entry3.clear()
         gui.entry4.clear()
+
+    def start(self):
+        app = QApplication(sys.argv)
+        ex = App(self, self._view)
+        sys.exit(app.exec_())
