@@ -14,6 +14,7 @@ class Person:
         }
 
     def get_resting_heart_rate(self):
+        #resting heartrate for males, diffenent ages and fitness_level
         if self.sex == 'male':
             if self.age < 30:
                 if self.fitness_level == 'excellent':
@@ -36,6 +37,7 @@ class Person:
                     return 72
                 elif self.fitness_level == 'low':
                     return 76
+        # resting heartrate for females, diffenent ages and fitness_level
         elif self.sex == 'female':
             if self.age < 30:
                 if self.fitness_level == 'excellent':
@@ -60,4 +62,5 @@ class Person:
                     return 80
 
     def get_maximum_heart_rate(self):
+        #calculation for maximum heartrate
         return 220 - self.age

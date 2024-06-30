@@ -7,6 +7,7 @@ class HeartRateView:
         self.data = None
 
     def display_properties(self):
+        # displays properties of Person
         properties = self.model.get_properties()
         print(f"Name: {properties['Name']}")
         print(f"Age: {properties['Age']}")
@@ -14,12 +15,14 @@ class HeartRateView:
         print(f"Fitness Level: {properties['Fitness Level']}")
 
     def display_heart_rate(self):
+        #displays resting and maximum heartrate
         resting_heart_rate = self.model.get_resting_heart_rate()
         max_heart_rate = self.model.get_maximum_heart_rate()
         print(f"Resting Heart Rate: {resting_heart_rate} bpm")
         print(f"Maximum Heart Rate: {max_heart_rate} bpm")
 
     def display_heart_rate_data_for_date(self, date, data):
+        #Displays heartrate for chosen date and shows in a Plot
         print(f"Heart Rate Data for {date}:")
         if data is not None and not data.empty:
             print(data)
@@ -40,6 +43,7 @@ class HeartRateView:
             print("No data available for this date.")
 
     def analyze_heart_rate(self, data):
+        #Shows all heartrate over collected time
         if data is not None:
             plt.figure(figsize=(10, 6))
             plt.plot(data['Date'], data['HeartRate'], label='Heart Rate')
@@ -51,10 +55,12 @@ class HeartRateView:
             plt.show()
 
     def display_correlation_analysis(self, correlation_matrix):
+        #Shows correlatin matrix
         print("Correlation Matrix:")
         print(correlation_matrix)
 
     def display_mean_heart_rate_per_activity(self, mean_heart_rate_per_activity):
+        #Shows heartrate per activity in a plot with bars
         activities = mean_heart_rate_per_activity.index
         mean_heart_rates = mean_heart_rate_per_activity.values
 
