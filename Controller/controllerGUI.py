@@ -7,8 +7,8 @@ from Model.blutbild import Blutbild
 from Model.messwert import Messwert
 from Model.model import Model
 from Model.patient import Patient
-from View.PersonApp import PersonApp
 from View.app import App
+from View.personApp import PersonApp
 
 
 class ControllerGUI:

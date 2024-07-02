@@ -1,8 +1,9 @@
-from Controller.Controller import Controller
-from Controller.ControllerGUI import ControllerGUI
+from Controller.controller import Controller
+from Controller.controllerGUI import ControllerGUI
+
 from Model.exampleData import ExampleData
 from Model.model import Model
-from View.ViewGUI import ViewGUI
+from View.viewGUI import ViewGUI
 from View.view import View
 
 

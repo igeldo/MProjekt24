@@ -1,11 +1,11 @@
 from PyQt5.QtWidgets import QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QWidget, QHBoxLayout
 
-from Controller import ControllerGUI
-from View.ViewGUI import ViewGUI
+from Controller import controllerGUI
+from View.viewGUI import ViewGUI
 
 
 class App(QWidget):
-    def __init__(self, controllergui: ControllerGUI, view: ViewGUI):
+    def __init__(self, controllergui: controllerGUI, view: ViewGUI):
         super().__init__()
         self._title = 'Krankenhaus Verwaltung'
         self._controller = controllergui
