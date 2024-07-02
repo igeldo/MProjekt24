@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QWidget, QHBoxLayout
 
-from Controller import ControllerGUI
-from View.ViewGUI import ViewGUI
+from Controller import controllerGUI
+from View.viewGUI import ViewGUI
 
 
 class App(QWidget):
