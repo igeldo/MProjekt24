@@ -5,3 +5,5 @@ class Messwert:
 
     def get_Messwert(self):
         return self._type, self._patientValue
+
+

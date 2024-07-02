@@ -33,6 +33,7 @@ class Patient(Person):
     def get_Blutbilder(self):
         return [blutbild for blutbild in self._Blutbilder]
 
+
     def get_all(self):
         return [self._name, self._surname, self._birthdate, self._phoneNumber, self._abbreviation, self._preillness,
                 self._symptoms, self._sex, self._patient_id]
