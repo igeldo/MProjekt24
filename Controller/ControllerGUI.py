@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import QMessageBox, QApplication
 from Model.blutbild import Blutbild
 from Model.messwert import Messwert
 from Model.model import Model
+from Model.patient import Patient
+from View.PersonApp import PersonApp
 from View.app import App
 
 
@@ -59,7 +61,36 @@ class ControllerGUI:
         gui.entry3.clear()
         gui.entry4.clear()
 
+    def create_person(self, gui):
+        self.person_app = PersonApp(self, self._view)
+        self.person_app.show()
+
+
+
+    def add_Patient(self, gui):
+        try:
+            name = gui.entry1.text()
+            surname = gui.entry2.text()
+            birth_date = gui.entry3.text()
+            phonenumber = gui.entry4.text()
+            phonenumber_int = int(phonenumber)
+            abbreviation = gui.entry5.text()
+            preillness = gui.entry6.text()
+            symptoms = gui.entry7.text()
+            sex = gui.entry8.text()
+            patient = Patient(name, surname, birth_date, phonenumber_int, abbreviation, preillness, symptoms, sex)
+            self._model.add_person(patient)
+            QMessageBox.information(gui, 'Erfolg', 'Patient erfolgreich hinzugefügt.')
+            self.person_app.close()
+        except ValueError as e:
+            QMessageBox.critical(gui, 'Fehler', f'Fehler bei der Eingabe: {e}')
+        except Exception as e:
+            QMessageBox.critical(gui, 'Fehler', f'Unerwarteter Fehler: {e}')
+            print(f"Fehler in add_Patient: {e}")
+
     def start(self):
         app = QApplication(sys.argv)
         ex = App(self, self._view)
         sys.exit(app.exec_())
+
+

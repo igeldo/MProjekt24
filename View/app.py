@@ -57,6 +57,10 @@ class App(QWidget):
         self.displayButton.clicked.connect(self.handle_display_allData)
         left_layout.addWidget(self.displayButton)
 
+        self.addButton3 = QPushButton('neue Person anlegen', self)
+        self.addButton3.clicked.connect(self.handle_create_person)
+        left_layout.addWidget(self.addButton3)
+
         right_layout = QHBoxLayout()
 
         self.resultLabel = QLabel('', self)
@@ -89,6 +93,12 @@ class App(QWidget):
             self._view.display_allData(self)
         except Exception as e:
             self.show_error_message(f"Fehler beim Anzeigen aller Daten: {e}")
+
+    def handle_create_person(self):
+        try:
+            self._controller.create_person(self)
+        except Exception as e:
+            self.show_error_message(f"Fehler beim Anlegen einer neuen Person: {e}")
 
     def show_error_message(self, message):
         QMessageBox.critical(self, 'Fehler', message)

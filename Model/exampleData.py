@@ -13,11 +13,11 @@ class ExampleData:
         self._main_model = model
 
 
-    def addDoctorData(self,):
+    def addDoctorData(self):
         doctor1 = Doctor('Prof. Dr.', 'Maral', 'Safadi', '1970-09-06', +4917765432109, 'MS', 'Internistin')
         self._main_model.add_person(doctor1)
 
-    def addPatientData(self,):
+    def addPatientData(self):
         patient1 = Patient('John', 'Doe', '1990-07-15', +4915123456789, 'JD', 'Keine', 'Fieber', 'Männlich')
         self._main_model.add_person(patient1)
 
