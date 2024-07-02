@@ -5,7 +5,7 @@ from View.viewGUI import ViewGUI
 
 
 class App(QWidget):
-    def __init__(self, controllergui: ControllerGUI, view: ViewGUI):
+    def __init__(self, controllergui: controllerGUI, view: ViewGUI):
         super().__init__()
         self._title = 'Krankenhaus Verwaltung'
         self._controller = controllergui

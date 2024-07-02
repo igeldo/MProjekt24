@@ -1,5 +1,6 @@
 from Controller.controller import Controller
 from Controller.controllerGUI import ControllerGUI
+
 from Model.exampleData import ExampleData
 from Model.model import Model
 from View.viewGUI import ViewGUI
