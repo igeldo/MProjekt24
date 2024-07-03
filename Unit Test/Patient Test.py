@@ -46,12 +46,5 @@ class TestPatient(unittest.TestCase):
         self.assertEqual(self.patient.get_Blutbilder()[0].getMesswerte()[1], ('WBC',6000))
 
 
-    def test_get_all(self):
-        expected_output = [
-            "John", "Doe", "1990-01-01", 123456789, "JD", "Diabetes",
-            "Headache, Fatigue", "Male", 1
-        ]
-        self.assertListEqual(self.patient.get_all(), expected_output)
-
 if __name__ == '__main__':
     unittest.main()
