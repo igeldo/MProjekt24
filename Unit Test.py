@@ -25,7 +25,7 @@ class Test_Correlation(unittest.TestCase):
         # Call the method from controller
         self.controller.analyze_correlation()
 
-        #define expected matrix
+        #define expected matrix calculated by hand
         expected_correlation_matrix = np.array([[1, 0.996], [0.996, 1]])
 
         # verify that method of Mock-View is called exactly once
