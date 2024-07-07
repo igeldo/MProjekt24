@@ -50,13 +50,24 @@ installiert werden.
 
 ### Anwendung von Matplotlib
 
-![Bild 1](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Heart%20rate%20for%20Date%20.png "Bild 1")
+![Heart Rate for Date](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Heart%20rate%20for%20Date%20.png "Heart Rate for Date")
+Die Herzfrequenz für das ausgewählte Datum wird als Liniendiagramm mit herzfrequenz über die Zeit ausgegeben
 
+![Heart Rate over Time](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Heart%20Rate%20over%20Time.png)
+Alle gemessenen Herzfrequenzen werden über den gesamten gemessenen zeitraum in einem Liniendiagramm ausgegeben.
 
+![Mean Heart Rate per Activity](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Mean%20Heart%20Rate%20per%20Activity.png)
+Dieses Balkendiagramm zeigt die mittlere Herzfrequenz pro gemessener Aktivität.
 
+### Darstellung der Eingaben und Ausgaben des Programms
 
+![Erste Eingabeaufforderung](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Screenshot%202024-07-07%20143311.png)
+Dieses Bild zeigt die erste Eingabeaufforderung nach Start des Programms. Die zu tätigen Eingaben sind in Grün dargestellt.
+Nach erfolgter Eingabe der daten werden bereits die Ruhe- und Maximalherzfrequenz berechnet
 
-
+![Eingabe spezifisches Datum](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Screenshot%202024-07-07%20143348.png)
+Dieses Bild zeigt die Eingabe eines spezifischen Datums für die Auswertung der Herzfrequenz. Dabei kann ein belibges datum gewählt werden, an welchem die Herzfrequenz aufgenommen wurde.
+Die Ausgabe zeigt die erhobenen Werte, die Plots und die berechnete Korrelation der Daten an.
 
 ### Format der Exeldatei
 
@@ -89,7 +100,9 @@ benötigt.
 
 Die Methode „setUp“ initialisiert den Testkontext, indem eine Testperson und ein Mock-View erstellt werden.
 
+
 Die Methode „test_analyze_correlation_with_numeric_data“ testet die Funktionalität der Korrelationsanalyse mit numerischen Daten.
+
 
 
 ## Kontakt
