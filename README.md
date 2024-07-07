@@ -2,10 +2,12 @@
 
 Programmiert von: Corinne, Fatima
 
+
 ## Überblick
 
 Dieses Programm ist eine Python Applikation basierend auf dem Model-View-Controller (MVC) Prinzip. 
 Das Programm wurde designend für die Analyse und Anzeige der Herzfrequenz. Die Anwendung erlaubt dem Nutzer personenbezogene Information einzugeben, die Herzfrequenzdaten aus einer Exceldatei zu importieren und verschiedene Analysen anzuwenden. Dabei kann die Ruhe- und Maximalherzfrequenz ermittelt werden, die Korrelation zwischen der Herzfrequenz und dem Alter sowie die mittlere Herzfrequenz pro Aktivität bestimmt werden. 
+
 
 ## Projektstruktur
 
@@ -19,11 +21,9 @@ Der Programmcode besteht aus vier Hauptkomponenten:
 
 Die Klasse „Person“ der Datei „model.py“ repräsentiert eine Person mit den Eigenschaften Name, Alter, Geschlecht und Fitnesslevel. Diese Klasse bietet Methoden an, welche auf Grundlage dieser Eigenschaften die Berechnung der Ruhe- und Maximalherzfrequenz ermöglichen. 
 
-
 ### View
 
 Die Klasse „HeartRateView“ der Datei „view.py“ ist verantwortlich für die Anzeige der Daten der Klasse Person. Dabei sind Methoden zur Anzeige von persönlichen Eigenschaften, Herzfrequenzdaten für selbstwählbare Daten, der Ergebnisse der Korrelationsanalyse und der Durchschnittlichen Herzfrequenz pro Aktivität enthalten.
-
 
 ### Controller
 
@@ -78,6 +78,7 @@ Bitte achten Sie darauf, dass die verwendete Exceldatei folgende Spalten enthäl
 * ‚HeartRate‘: die ermittelte Herzfrequenz in bpm
 * ‚Activity‘: Die Aktivität, während die Herzfrequenz aufgenommen wurde
 
+
 ## Starten des Programms
 
 Navigieren Sie zu den Projektordnern und lassen sie die Datei „main.py“ laufen. Sobald das Programm durchläuft, werden Sie dazu aufgefordert persönliche Daten (Name, Alter, Geschlecht, Fitnesslevel) der zu analysierenden Person einzugeben. Anschließend müssen sie den Dateipfad der Exceldatei (in welcher die Herzfrequenzdaten gespeichert sind) eingeben. Dies funktioniert auch per Copy-Paste. 	
@@ -100,9 +101,13 @@ benötigt.
 
 Die Methode „setUp“ initialisiert den Testkontext, indem eine Testperson und ein Mock-View erstellt werden.
 
+![Code setup](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Screenshot%202024-07-07%20151330.png)
+Dieses Bild zeigt das die Methode "setUp".
 
 Die Methode „test_analyze_correlation_with_numeric_data“ testet die Funktionalität der Korrelationsanalyse mit numerischen Daten.
 
+![Numerische Daten](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Screenshot%202024-07-07%20151434.png)
+Dieses Bild zeigt die numerischen Daten für den Unittest.
 
 
 ## Kontakt
