@@ -18,12 +18,12 @@ Der Programmcode besteht aus vier Hauptkomponenten:
 ### Model
 
 Die Klasse „Person“ der Datei „model.py“ repräsentiert eine Person mit den Eigenschaften Name, Alter, Geschlecht und Fitnesslevel. Diese Klasse bietet Methoden an, welche auf Grundlage dieser Eigenschaften die Berechnung der Ruhe- und Maximalherzfrequenz ermöglichen. 
-Bild?
+
 
 ### View
 
 Die Klasse „HeartRateView“ der Datei „view.py“ ist verantwortlich für die Anzeige der Daten der Klasse Person. Dabei sind Methoden zur Anzeige von persönlichen Eigenschaften, Herzfrequenzdaten für selbstwählbare Daten, der Ergebnisse der Korrelationsanalyse und der Durchschnittlichen Herzfrequenz pro Aktivität enthalten.
-Bild?
+
 
 ### Controller
 
@@ -49,7 +49,14 @@ pip install numpy pandas matplotlib
 installiert werden.
 
 ### Anwendung von Matplotlib
-Bilder
+
+![Bild 1](https://github.com/igeldo/MProjekt24/blob/CorinneFarnazFatima/Pictures/Heart%20rate%20for%20Date%20.png "Bild 1")
+
+
+
+
+
+
 
 ### Format der Exeldatei
 
