@@ -3,24 +3,31 @@ from Controller import controllerGUI
 
 from View.viewGUI import ViewGUI
 
+# nach dem betätigen des Buttons 'neue Person anlegen' soll ein neues Fenster geöffnet werden
+# und es soll neue Patienten aufgenommen werden
 
 class PersonApp(QWidget):
     def __init__(self, controllergui: controllerGUI, view: ViewGUI):
-        super().__init__()
-        self._title = 'Patienten-Verwaltung'
-        self._controller = controllergui
-        self._view = view
-        self.initUI()
+        # controllergui: Eine Instanz der controllerGUI-Klasse, die die Steuerungslogik der Anwendung enthält.
+        # view: Eine Instanz der ViewGUI-Klasse, die für die Darstellung der Benutzeroberfläche verantwortlich ist.
+        super().__init__() # Der Konstruktor der Basisklasse QWidget wird aufgerufen, um das Widget zu initialisieren.
+        self._title = 'Patienten-Verwaltung' # Titel
+        self._controller = controllergui # Eine Referenz auf die controllerGUI-Instanz wird in der Klasse gespeichert.
+        self._view = view # Eine Referenz auf die ViewGUI-Instanz wird in der Klasse gespeichert.
+        self.initUI() # Benutzeroberfläche initialisieren
 
+    # Benutzeroberfläche:
     def initUI(self):
         self.setWindowTitle(self._title)
+    #  Der Titel des Anwendungsfensters wird auf den zuvor in __init__() gesetzten Wert "Patienten-Verwaltung" gesetzt.
 
         # Hauptlayout
-        main_layout = QHBoxLayout()
+        main_layout = QHBoxLayout() # horizontales Layout
 
         # Layout für die Eingabefelder und Buttons
         left_layout = QVBoxLayout()
 
+        # Beschriftungen und Eingabefelder für verschiedene Patientendaten
         self.label1 = QLabel('Name:', self)
         left_layout.addWidget(self.label1)
 
@@ -69,22 +76,23 @@ class PersonApp(QWidget):
         self.entry8 = QLineEdit(self)
         left_layout.addWidget(self.entry8)
 
-        self.addButton1 = QPushButton('Save Patient Data', self)
-        self.addButton1.clicked.connect(self.handle_add_patient)
+        self.addButton1 = QPushButton('Save Patient Data', self) # Button "Save Patient Data" wird erstellt
+        self.addButton1.clicked.connect(self.handle_add_patient) # Speichern der Patientendaten
         left_layout.addWidget(self.addButton1)
 
 
-        main_layout.addLayout(left_layout)
+        main_layout.addLayout(left_layout) # Das left_layout mit den Eingabefeldern und dem Button wird dem main_layout hinzugefügt.
 
-        self.setLayout(main_layout)
-        self.show()
+        self.setLayout(main_layout) # Das main_layout wird als Layout für das PersonApp-Widget gesetzt.
+        self.show() # Das PersonApp-Widget wird angezeigt.
 
-    def handle_add_patient(self):
+    # Verarbeitung des Speichervorgangs von Patientendaten
+    def handle_add_patient(self): # Diese Methode wird aufgerufen, wenn der Benutzer den "Save Patient Data"-Button klickt.
         try:
-            self._controller.add_Patient(self)
+            self._controller.add_Patient(self) # Patientendaten werden mithilfe der add_Patient(self) Methode des _controller Objekts gespeichert.
         except Exception as e:
             self.show_error_message(f"Fehler beim Hinzufügen des Patienten: {e}")
 
-    def show_error_message(self, message):
-        QMessageBox.critical(self, 'Fehler', message)
-        print(message)
+    def show_error_message(self, message): # nimmt eine Fehlermeldung als Parameter entgegen
+        QMessageBox.critical(self, 'Fehler', message) # Sie erstellt ein QMessageBox-Objekt, um die Fehlermeldung in einem Dialog-Fenster anzuzeigen
+        print(message) #  Fehlermeldung auch in der Konsole angezeigt
