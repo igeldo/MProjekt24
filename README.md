@@ -23,10 +23,10 @@ Rechts im Hauptfenster befindet sich ein schwarzer Rahmen, der der Anzeige von D
 Die Position des Fensters lässt sich nach Bedarf anpassen, indem der Anwender es an der gewünschten Stelle positioniert.
 Im KIS-Programm können folgende Patientendaten erfasst werden:
 
-    - Patienten-ID
-    - Aufnahmedatum
-    - Messwertyp
-    - Messwert
+- Patienten-ID
+- Aufnahmedatum 
+- Messwertyp 
+- Messwert
 
 Zudem können Messwerte gespeichert, Blutbilder hinzugefügt, alle Daten angezeigt und neue Patienten angelegt werden.
 Durch Betätigen der entsprechenden Schaltflächen wie "alle Daten anzeigen" oder "neue Person anlegen" werden dafür
