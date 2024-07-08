@@ -1,8 +1,9 @@
 import unittest
-from datetime import datetime
+
 from Model.blutbild import Blutbild
 from Model.messwert import Messwert
 from Model.patient import Patient
+
 
 class TestPatient(unittest.TestCase):
     def setUp(self):
@@ -30,21 +31,13 @@ class TestPatient(unittest.TestCase):
 
     def test_add_blutbild(self):
         blutbild1 = Blutbild(
-            Aufnahmedatum = "2024-02-02",
-            PatID = 1
+            Aufnahmedatum="2024-02-02",
+            PatID=1
         )
         blutbild1.addMesswert(Messwert('HB', 9.0))
         blutbild1.addMesswert(Messwert('WBC', 6000))
         blutbild1.addMesswert(Messwert('RBC', 5.0))
         blutbild1.addMesswert(Messwert('PLT', 150000))
-
-
         self.patient.add_Blutbilder(blutbild1)
-
-
         self.assertEqual(len(self.patient.get_Blutbilder()), 1)
-        self.assertEqual(self.patient.get_Blutbilder()[0].getMesswerte()[1], ('WBC',6000))
-
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(self.patient.get_Blutbilder()[0].getMesswerte()[1], ('WBC', 6000))
