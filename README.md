@@ -12,12 +12,16 @@ In der folgenden Abbildung wird die Benutzeroberfläche dargestellt.
 
 ![GUI1.jpg](Images\GUI1.jpg)
 
+Abbildung 1: Grafikoberfläche des KIS-Systems
+
 Die Benutzeroberfläche kann durch Ziehen der Fensterränder mit der Maus vergrößert werden. Oben rechts im Fenster
 befinden sich drei Symbole: Ein schwarzer Strich minimiert das Fenster, ein Rechtecksymbol maximiert es, und ein Kreuz
 schließt es (Abbildung 2 rot umrahmt). Im Kopfbereich des Fensters wird der Programmname "Krankenhaus Verwaltung"
 angezeigt (Abbildung 2 grün umrahmt).
 
 ![GUI2.jpg](Images\GUI2.jpg)
+
+Abbildung 2: Fenstersteuerung über Symbolleiste
 
 Rechts im Hauptfenster befindet sich ein schwarzer Rahmen, der der Anzeige von Daten aus der Datenbank dient.
 Die Position des Fensters lässt sich nach Bedarf anpassen, indem der Anwender es an der gewünschten Stelle positioniert.
@@ -30,11 +34,15 @@ Im KIS-Programm können folgende Patientendaten erfasst werden:
 
 Zudem können Messwerte gespeichert, Blutbilder hinzugefügt, alle Daten angezeigt und neue Patienten angelegt werden.
 Durch Betätigen der entsprechenden Schaltflächen wie "alle Daten anzeigen" oder "neue Person anlegen" werden dafür
-separate Fenster geöffnet. Diese werden in den Abbildungen 4 und 5 dargestellt.
+separate Fenster geöffnet. Diese wird in Abbildungen 3 und 4 dargestellt.
 
 ![GUI3.jpg](Images\GUI3.jpg)
 
+Abbildung 3: Nachdem betätigen der Schaltfläche "alle Daten anzeigen" wird dieses Fenster angezeigt.
+
 ![GUI4.jpg](Images\GUI4.jpg)
+
+Abbildung 4: Nachdem betätigen der Schaltfläche "neue Person anlegen" wird dieses Fenster angezeigt.
 
 Zusätzlich wurde ein Unit-Test für die "Patient"-Klasse erstellt, um deren Funktionalität zu überprüfen.
 
