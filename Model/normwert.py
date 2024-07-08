@@ -2,24 +2,24 @@ from enum import Enum
 
 class Normwert:
     def __init__(self, abbreviation: str, unit: str, normalValue_min: float, normalValue_max: float,
-                 shortDescription: str): #nimmt mehrere Parameter entgegen, die zur Initialisierung des Objekts verwendet werden.
+                 shortDescription: str): # nimmt mehrere Parameter entgegen, die zur Initialisierung des Objekts verwendet werden.
         self._abbreviation = abbreviation
-        self._unit = unit ##Hier wird die Instanzvariable _unit mit dem übergebenen unit Wert initialisiert.
+        self._unit = unit # Hier wird die Instanzvariable _unit mit dem übergebenen unit Wert initialisiert.
         self._normalValue_min = normalValue_min
         self._normalValue_max = normalValue_max
         self._short_Description = shortDescription
 
-#minimaler und maximaler Normalwert einer bestimmten Messgröße wird abgefragt.
+# minimaler und maximaler Normalwert einer bestimmten Messgröße wird abgefragt.
     def get_MinValue(self):
         return self._normalValue_min
-    #Der Minimalwert ist in der Instanzvariable _normalValue_min gespeichert.
-    #Wenn diese Methode aufgerufen wird, wird einfach der Wert von _normalValue_min zurückgegeben.
+    # Der Minimalwert ist in der Instanzvariable _normalValue_min gespeichert.
+    # Wenn diese Methode aufgerufen wird, wird einfach der Wert von _normalValue_min zurückgegeben.
 
     def get_MaxValue(self):
         return self._normalValue_max
 
 
-#Sammlung von Normalwerten
+# Sammlung von Normalwerten
 class Normwerte(Enum):
     HBMale = Normwert('HB', 'mmol/l', 8.1, 10.5, 'transportiert Sauerstoff im Blut')
     HBFemale = Normwert('HB', 'mmol/l', 7.4, 9.9, 'transportiert Sauerstoff im Blut')

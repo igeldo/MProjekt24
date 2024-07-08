@@ -1,5 +1,5 @@
-#Die Messwert-Klasse stellt einen einzelnen Messwert dar,
-#der mit einem Patienten in Verbindung steht.
+# Die Messwert-Klasse stellt einen einzelnen Messwert dar,
+# der mit einem Patienten in Verbindung steht.
 class Messwert:
     def __init__(self, type: str, patientValue: float):
         self._type = type
