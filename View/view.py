@@ -5,16 +5,18 @@ from Model.patient import Patient
 class View:
     def __init__(self, model):
         self._model = model
+    #Konstruktor der Klasse View
+    #nimmt ein model-Objekt entgegen, das Daten über die darzustellenden Personen enthält.
 
     def display_person(self, person):
-        if isinstance(person, Patient):
+        if isinstance(person, Patient): #überprüfen, ob das person-Objekt eine Instanz der Klasse Patient ist.
             self.display_patient(person)
-        elif isinstance(person, Doctor):
+        elif isinstance(person, Doctor): #überprüfen,  ob das person-Objekt eine Instanz der Klasse Doctor ist.
             self.display_doctor(person)
         else:
-            self.display_generic_person(person)
+            self.display_generic_person(person) #ruft eine Person auf eine generische Art und Weise auf
 
-    def display_patient(self, patient):
+    def display_patient(self, patient): #Patienten detailliert auf der Konsole auszugeben
         print(f"Patient ID: {patient.get_patient_id()}")
         print(f"Name: {patient.get_name()}")
         print(f"Surname: {patient.get_surname()}")
@@ -29,8 +31,8 @@ class View:
         print("Blutbilder des Patienten:")
         for blutbild in patient.get_Blutbilder():
             print(f"Aufnahmedatum: {blutbild.getDate()}")
-            for result in blutbild.checkMesswerte():
-                print(f"{result[0]}: {result[1]} ({result[2]})")
+            for result in blutbild.checkMesswerte(): #alle Messwerte des Blutbildes.
+                print(f"{result[0]}: {result[1]} ({result[2]})") #Gibt den Messparameter, den Messwert und die Einheit aus.
         print('\n')
 
     def display_doctor(self, doctor):
