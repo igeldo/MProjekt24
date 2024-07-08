@@ -1,14 +1,133 @@
-class Normwert:
-def __init__(self, abbreviation: str, unit: str, normalValue_min: float, normalValue_max: float,
-shortDescription: str):
-self._abbreviation = abbreviation
-self._unit = unit
-self._normalValue_min = normalValue_min
-self._normalValue_max = normalValue_max
-self._short_Description = shortDescription
+# Krankenhausinformationssystem (KIS)
 
-    def get_MinValue(self):
-        return self._normalValue_min
+## Einleitung:
+
+In unserer Master-Projektarbeit haben wir ein Krankenhausinformationssystem (KIS) in Python programmiert. Das Projekt
+wurde nach dem Prinzip des Model-View-Controller (MVC)-Architekturmusters entwickelt. Dazu wurde eine Benutzeroberfläche
+entworfen.
+
+## Benutzeroberfläche (GUI)
+
+In der folgenden Abbildung wird die Benutzeroberfläche dargestellt.
+
+![GUI1.jpg](Images\GUI1.jpg)
+
+Die Benutzeroberfläche kann durch Ziehen der Fensterränder mit der Maus vergrößert werden. Oben rechts im Fenster
+befinden sich drei Symbole: Ein schwarzer Strich minimiert das Fenster, ein Rechtecksymbol maximiert es, und ein Kreuz
+schließt es (Abbildung 2 rot umrahmt). Im Kopfbereich des Fensters wird der Programmname "Krankenhaus Verwaltung"
+angezeigt (Abbildung 2 grün umrahmt).
+
+![GUI2.jpg](Images\GUI2.jpg)
+
+Rechts im Hauptfenster befindet sich ein schwarzer Rahmen, der der Anzeige von Daten aus der Datenbank dient.
+Die Position des Fensters lässt sich nach Bedarf anpassen, indem der Anwender es an der gewünschten Stelle positioniert.
+Im KIS-Programm können folgende Patientendaten erfasst werden:
+
+    - Patienten-ID
+    - Aufnahmedatum
+    - Messwertyp
+    - Messwert
+
+Zudem können Messwerte gespeichert, Blutbilder hinzugefügt, alle Daten angezeigt und neue Patienten angelegt werden.
+Durch Betätigen der entsprechenden Schaltflächen wie "alle Daten anzeigen" oder "neue Person anlegen" werden dafür
+separate Fenster geöffnet. Diese werden in den Abbildungen 4 und 5 dargestellt.
+
+![GUI3.jpg](Images\GUI3.jpg)
+
+![GUI4.jpg](Images\GUI4.jpg)
+
+Zusätzlich wurde ein Unit-Test für die "Patient"-Klasse erstellt, um deren Funktionalität zu überprüfen.
+
+```
+class TestPatient(unittest.TestCase):
+    def setUp(self):
+        self.patient = Patient(
+            name="John",
+            surname="Doe",
+            birthdate="1990-01-01",
+            phoneNumber=123456789,
+            abbreviation="JD",
+            preIllness="Diabetes",
+            symptoms="Headache, Fatigue",
+            sex="Male"
+        )
+
+    def test_patient_creation(self):
+        self.assertEqual(self.patient.get_name(), "John")
+        self.assertEqual(self.patient.get_surname(), "Doe")
+        self.assertEqual(self.patient.get_birthdate(), "1990-01-01")
+        self.assertEqual(self.patient.get_phone_number(), 123456789)
+        self.assertEqual(self.patient.get_abbreviation(), "JD")
+        self.assertEqual(self.patient.get_preillness(), "Diabetes")
+        self.assertEqual(self.patient.get_symptoms(), "Headache, Fatigue")
+        self.assertEqual(self.patient.get_sex(), "Male")
+        self.assertEqual(self.patient.get_patient_id(), 1)
+
+    def test_add_blutbild(self):
+        blutbild1 = Blutbild(
+            Aufnahmedatum="2024-02-02",
+            PatID=1
+        )
+        blutbild1.addMesswert(Messwert('HB', 9.0))
+        blutbild1.addMesswert(Messwert('WBC', 6000))
+        blutbild1.addMesswert(Messwert('RBC', 5.0))
+        blutbild1.addMesswert(Messwert('PLT', 150000))
+        self.patient.add_Blutbilder(blutbild1)
+        self.assertEqual(len(self.patient.get_Blutbilder()), 1)
+        self.assertEqual(self.patient.get_Blutbilder()[0].getMesswerte()[1], ('WBC', 6000))
+```
+
+## Model-View-Controller Konzept (MVC)
+
+Model-View-Controller (MVC) ist ein Entwurfsmuster zur Unterteilung einer Software in drei Komponenten Datenmodell (
+Model), Ansicht (View) und Programmsteuerung (Controller), die miteinander interagieren. Das Muster kann sowohl als
+Architekturmuster als auch als Entwurfsmuster eingesetzt werden. Die Trennung von Model, View und Controller ermöglicht
+eine modulare und flexible Softwareentwicklung. Änderungen an einer Komponente haben in der Regel keine Auswirkungen auf
+die anderen Komponenten. Dadurch wird die Wartbarkeit, Testbarkeit und Wiederverwendbarkeit der Anwendung erhöht.
+
+1. Model: Das Model repräsentiert die Daten und die Kernfunktionalität der Anwendung. Es kümmert sich um die Verwaltung
+   und Verarbeitung der Daten, ohne sich um die Darstellung oder Interaktion zu kümmern.
+2. View: Die View ist für die visuelle Darstellung der Daten verantwortlich. Sie erhält die Daten vom Model und
+   präsentiert sie dem Benutzer in einer geeigneten Form, z.B. als grafische Oberfläche.
+3. Controller: Der Controller fungiert als Vermittler zwischen Model und View. Er nimmt Benutzereingaben entgegen,
+   verarbeitet sie und aktualisiert dann das Model entsprechend. Anschließend informiert er die View über Änderungen im
+   Model, damit diese die Darstellung aktualisieren kann.
+
+### Model
+
+In unserem Programm stellen die Model-Klassen die Grundbausteine dar. In diesen Klassen werden die spezifischen
+Eigenschaften und Attribute von Patienten und Ärzten definiert. Bei der Aufnahme eines Patienten wird automatisch eine
+eindeutige Patienten-ID generiert und das Alter des Patienten ebenfalls automatisch berechnet, basierend auf einem
+integrierten Algorithmus.
+Folgende Eigenschaften werden den Patienten zugeordnet:
+
+- Name
+- Nachname
+- Geburtstag bzw. der Alter
+- Telefonnummer bzw. Handynummer
+- Abkürzung des Namens
+- Vorkrankheit
+- Symptome
+- Geschlecht
+
+Und folgende Eigenschaften werden den Ärtzten zugeordnet:
+
+- Titel
+- Name
+- Nachname
+- Geburtstag
+- Telefonnummer bzw. Handynummer
+- Abkürzung
+- Profession
+
+Weiterhin gibt es noch Model-Klassen für die Blutbilder so wie die einzelnen Messwerte die darin enthalten sein Können.
+
+Ein Blutbild verfügt über die Eigenschaften:
+
+- Aufnahmedatum
+- ID
+- Geschlecht
+- Messwerte
 
 Wobei das Geschlecht automatisch bestimmt wird, sobald das Blutbild einem Patienten zugeordnet wird. Die Messwerte
 werden dem Blutbild im Laufe der Anwendung zu geordnet und hier gespeichert.
@@ -185,7 +304,8 @@ ermöglicht das Hinzufügen von Blutbildern, Messwerten und Patienten zum Modell
 Ablauf der Anwendung.
 Es gibt jeweils einen Controller für die Steuerung der graphischen Oberfläche und einen zur Steuerung der
 Kommando-Ausgabe.
-Die Controller-Klasse für das GUI beinhaltet unter anderem die Logik, um auf Benutzereingaben zu reagieren. Beispielsweise wird in
+Die Controller-Klasse für das GUI beinhaltet unter anderem die Logik, um auf Benutzereingaben zu reagieren.
+Beispielsweise wird in
 diesen Klassen implementiert, dass bei Betätigung der Schaltflächen "alle Daten anzeigen" oder "neue Person anlegen" ein
 neues Fenster geöffnet wird, um die entsprechenden Funktionalitäten bereitzustellen.
 
@@ -273,7 +393,6 @@ class ControllerGUI:
         sys.exit(app.exec_())
 ```
 
-
 ## Zusammenfassung
 
 Das in Python programmierte Krankenhausinformationssystem (KIS) wurde nach dem Model-View-Controller-Architekturmuster
@@ -281,3 +400,4 @@ entwickelt. Das Programm ermöglicht die Erfassung von Patientendaten und Blutbi
 gespeichert, Blutbilder hinzugefügt, Daten angezeigt und neue Patienten angelegt werden. Das System verwendet eine
 grafische Benutzeroberfläche, die durch Ziehen der Fensterränder vergrößert werden kann und verschiedene Steuersymbole
 enthält. Darüber hinaus wurde ein Unit-Test für die "Patient"-Klasse erstellt, um deren Funktionalität zu überprüfen.
+
