@@ -47,9 +47,9 @@ class Blutbild:
         for messwert in self._messwerte:
             blood_type, patientValue = messwert.get_Messwert()
             normwert = None
-            if self._sex == "Männlich":
+            if self._sex == "Männlich" or "männlich" or "male":
                 normwert = Normwerte[blood_type + "Male"].value
-            elif self._sex == "Weiblich":
+            elif self._sex == "Weiblich" or "weiblich" or "female":
                 normwert = Normwerte[blood_type + "Female"].value
 
             if normwert:

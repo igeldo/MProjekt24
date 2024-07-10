@@ -28,8 +28,8 @@ Die Position des Fensters lässt sich nach Bedarf anpassen, indem der Anwender e
 Im KIS-Programm können folgende Patientendaten erfasst werden:
 
 - Patienten-ID
-- Aufnahmedatum 
-- Messwertyp 
+- Aufnahmedatum
+- Messwertyp
 - Messwert
 
 Zudem können Messwerte gespeichert, Blutbilder hinzugefügt, alle Daten angezeigt und neue Patienten angelegt werden.

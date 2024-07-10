@@ -15,11 +15,11 @@ class Main:
         gui_view = ViewGUI(main_model)
         gui_controller = ControllerGUI(main_model, gui_view)
 
-        Data = ExampleData(main_model)
+        data = ExampleData(main_model)
 
-        Data.addDoctorData()
-        Data.addPatientData()
-        Data.addBlutbilderData()
+        data.addDoctorData()
+        data.addPatientData()
+        data.addBlutbilderData()
 
         main_controller.start()
         gui_controller.start()
